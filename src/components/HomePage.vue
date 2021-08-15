@@ -24,9 +24,16 @@
     </div>
   </div>
   <div class="screen2">
-    <div>
-      <div class="ring"></div>
-      <img src="../../public/images/cpu.png" alt="ai" height="240px">
+    <div class="strip">
+      </div>
+    <div class="skill">
+      <h1>
+        <p>硬件与软件</p>
+        <p>奇妙联合</p>
+      </h1>
+      <h3>模拟电路、数字电路、集成电路构建了它的身躯，在各行各业中发挥着非常重要的作用，是现代信息社会的基石。</h3>
+      <h3>特定顺序组织的计算机数据和指令赋予它灵魂，是无形的，没有物理形态，渗透了人类大量的脑力劳动和逻辑思维，软件具有可复用性。</h3>
+      <!-- <img src="../../public/images/cpu.png" alt="ai" height="240px"> -->
     </div>
   </div>
 </template>
@@ -54,7 +61,9 @@ export default defineComponent({
     return {};
   },
   methods: {},
-  mounted() {},
+  mounted() {
+
+  },
   watch: {},
 });
 </script>
@@ -147,8 +156,8 @@ ul {
   width: 100%;
   background-image: url("../../public/images/bk1.png");
   background-color: #e8edf3;
-  background-position: top;
-  background-size: 1920px 1080px;
+  background-position: center;
+  background-size:1920px 1080px;
   background-repeat: no-repeat;
 }
 .introduce {
@@ -179,15 +188,45 @@ ul {
   background-image: url('../../public/images/bk2.png');
   background-color: #e8edf3;
   background-position: top;
-  background-size: 1920px 1080px;
+  background-size: 1920 1080px;
   background-repeat: no-repeat;
 }
-.ring{
-  height: 300px;
-  width: 300px;
-  border: 10px solid rgb(155, 159, 163);
-  border-radius: 50%;
-  transform: rotateX(45deg);
-  box-shadow: 0 8px 8px #000;
+.strip{
+  //position: absolute;
+  //z-index: 10;
+  height: 400px;
+  width: 8px;
+  margin-left: 20px;
+  border-radius: 8px;
+  background-image: linear-gradient(to bottom,#e8edf3,#fff);
+  box-shadow: inset 0px 0px 2px 2px #bfc1c4;
+  &::after{
+    z-index: 12;
+    content: '';
+    display: block;
+    height: 400px;
+    width: 8px;
+    position: absolute;
+    margin-left: 0px;
+    border-radius: 8px;
+    background-image: linear-gradient(to bottom,#e8edf3,#fff);
+    box-shadow: 0px 4px 4px 2px #e8edf3;
+    opacity: 0.8;
+  }
+}
+.skill{
+  
+  margin-left: 6rem;
+  text-align: justify;
+  h1{
+    margin-bottom: 1rem;
+    width: 300px;
+  }
+  h3{
+    width: 300px;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 2rem;
+  }
 }
 </style>
