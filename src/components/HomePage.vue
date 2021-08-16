@@ -126,15 +126,43 @@
           </div>
         </div>
         <div class="screen4-main-radarmap">
-          <div class="lbx">
-          <svg height="440" width="500">
-            <polygon points="220,50 300,210 170,250 123,234" style="fill:lime;stroke:purple;stroke-width:1" />
-          </svg>
-          </div>
-
+          <div class="lbx"></div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="screen5">
+    <div class="screen5-card1">
+      <div class="screen5-card-title">
+        <span class="iconfont icon-mi"></span>
+        <h1>风色幻想</h1>
+      </div>
+      <div class="screen5-card-content">
+        <p>游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。玩家将扮演一位名为“旅行者”的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘“原神”的真相。</p>
+        <p>剑灵凭借完美的视觉表现力,电影版的剧情体验,深厚的东方文化底蕴,自由灵活的战斗体验,成为突破传统、引领潮流的最受期待网游。</p>
+        <p>天地处于“混沌”状态，有“盘古”生于其间。盘古身体不断成长，原来的混沌状态不能容纳其身体而分裂，“清气”上升为天，“浊气”沉降为地。盘古死后，其精、气、神分化成三位大神，分别为伏羲、神农、女娲。</p>
+      </div>
+      <div class="screen5-card-bottom"></div>
+    </div>
+    <div class="screen5-card2">
+      <div class="person"></div>
+      <div class="screen5-card-title">
+        <h1>剑&nbsp;灵</h1>
+      </div>
+      <div class="screen5-card-content"></div>
+      <div class="screen5-card-bottom"></div>
+    </div>
+    <div class="screen5-card3">
+      <div class="person"></div>
+      <div class="screen5-card-title">
+        <h1>原&nbsp;神</h1>
+      </div>
+      <div class="screen5-card-content"></div>
+      <div class="screen5-card-bottom"></div>
+    </div>
+  </div>
+  <div class="screen6">
+
   </div>
 </template>
 
@@ -204,6 +232,9 @@ ul {
   padding: 0;
   margin: 0;
 }
+body {
+  background-color: @colorBk;
+}
 
 /* 顶部导航 */
 .top-header {
@@ -253,6 +284,7 @@ ul {
   margin: 0;
   height: 1080px;
   width: 100%;
+  margin: 0 auto;
   background-image: url("../../public/images/bk1.png");
   background-color: @colorBk;
   background-position: center;
@@ -304,8 +336,9 @@ ul {
 }
 /* 首页第2屏——技能大类页 */
 .screen2 {
-  width: 100%;
-  height: 900px;
+  height: 750px;
+  width: 1200px;
+  margin: 0 auto;
   box-shadow: 0 -50px 60px #e8edf3;
   background-image: url("../../public/images/bk2.png");
   background-color: @colorBk;
@@ -319,7 +352,6 @@ ul {
   justify-content: space-evenly;
   align-items: center;
   .introduce2 {
-    margin-left: 6rem;
     text-align: justify;
     h1 {
       margin-bottom: 1rem;
@@ -387,8 +419,8 @@ ul {
 }
 /* 首页第3屏——播放列表页 */
 .screen3 {
-  width: 100%;
   height: 600px;
+  width: 100%;
   background-color: @colorBk;
 }
 .m1 {
@@ -476,8 +508,9 @@ ul {
 /* 首页第4屏——技能掌握页 */
 .screen4 {
   background-color: @colorBk;
-  height: 900px;
-  width: 100%;
+  height: 750px;
+  width: 1200px;
+  margin: 0 auto;
 }
 .screen4-box {
   width: 600px;
@@ -559,7 +592,6 @@ ul {
     }
   }
 }
-
 .screen4-main-radarmap {
   margin-left: 100px;
   width: 600px;
@@ -567,7 +599,7 @@ ul {
   border-radius: 10px;
   background-color: #e8edf3;
   box-shadow: -8px -8px 18px #ffffff, 8px 8px 18px #c3c7cc;
-  .lbx{
+  .lbx {
     position: absolute;
     width: 500px;
     height: 440px;
@@ -576,18 +608,175 @@ ul {
     border-radius: 10px;
     background-color: #e8edf3;
     box-shadow: -8px -8px 18px #ffffff, 8px 8px 18px #cacfd4;
+    text-align: center;
+    line-height: 540px;
+    background-image: url("../../public/images/zz.png");
+    background-size: 100%;
   }
-  // &::before {
-  //   content: "";
-  //   display: block;
-  //   position: absolute;
-  //   width: 500px;
-  //   height: 440px;
-  //   margin-left: 50px;
-  //   margin-top: 50px;
-  //   border-radius: 10px;
-  //   background-color: #e8edf3;
-  //   box-shadow: -8px -8px 18px #ffffff, 8px 8px 18px #cacfd4;
-  // }
+}
+/* 首页第5屏——技能掌握页 */
+.screen5 {
+  box-sizing: border-box;
+  height: 700px;
+  width: 1200px;
+  padding: 50px 0px;
+  margin: 0 auto;
+  background-color: @colorBk;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+.screen5-card-title {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 10;
+  width: 270px;
+  height: 70px;
+  background-color: #e8edf3;
+  border-radius: 8px;
+    box-shadow: inset 4px -4px 8px #d89836, -4px 4px 8px #c18d3e, inset -4px 4px 8px #fff0d9, 4px -4px 8px #fffefd;}
+.screen5-card-content {
+  z-index: 9;
+  position: absolute;
+  width: 270px;
+  height: 480px;
+  background-color: #dbe0e7;
+  background-image: linear-gradient(to bottom, #e8edf3 20%, #ffc6aa);
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px #b98b74, -2px -4px 8px #ffffff;
+}
+.screen5-card-bottom {
+  z-index: 8;
+  position: absolute;
+  width: 270px;
+  height: 250px;
+  margin-top: 250px;
+  background-color: #eebca5;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px #b98b74;
+      background-image: linear-gradient(to bottom, #e8edf3 20%, #dfb49f);
+    -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
+}
+.screen5-card1 {
+  height: 500px;
+  width: 270px;
+  .screen5-card-title{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding-left: 1rem;
+    span{
+      font-size: 3rem;
+    }
+    h1{
+      margin-left: 1rem;
+      color: rgb(70, 70, 70);
+    }
+  }
+  .screen5-card-content{
+    box-sizing: border-box;
+    padding-top: 70px;
+    padding: 70px 1rem;
+    //overflow: auto;
+    p{
+      margin-top: 1rem;
+      text-indent: 2rem;
+      text-align: justify;
+      color: #727272;
+      font-size: 14px;
+      
+    }
+  }
+}
+.screen5-card2 {
+  width: 270px;
+  height: 500px;
+  //background-color: #dbe0e7;
+  .person {
+    position: absolute;
+    z-index: 9;
+    width: 270px;
+    height: 250px;
+    margin-top: 120px;
+    background-image: url(/public/images/lihui/ningguang.png);
+    background-size: 140%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+  .screen5-card-title {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 12;
+    width: 200px;
+    height: 70px;
+    margin-top: 280px;
+    background-color: #e8edf3;
+    border-radius: 50px;
+    box-shadow: inset 4px -4px 8px #bbb797, -4px 4px 8px #c5ba61, inset -4px 4px 8px #e6dea6, 4px -4px 8px #d4cea5;
+    h1{
+      text-align: center;
+      color: #473219;
+      line-height: 70px;
+  }
+    }
+ 
+  .screen5-card-content {
+    z-index: 10;
+    box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
+    background-image: linear-gradient(to bottom, #e8edf3 75%, #f6e393);
+    -webkit-mask-image: url("../../public/images/tx.png");
+  }
+  .screen5-card-bottom {
+    background-image: linear-gradient(to bottom, #e8edf3 20%, #e6d381);
+    -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
+  }
+}
+.screen5-card3 {
+  width: 270px;
+  height: 500px;
+  .person {
+    position: absolute;
+    z-index: 9;
+    width: 270px;
+    height: 250px;
+    margin-top: 120px;
+    background-image: url(/public/images/lihui/xiao.png);
+    background-size: 140%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+  .screen5-card-title {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 12;
+    width: 200px;
+    height: 70px;
+    margin-top: 280px;
+    h1{
+      text-align: center;
+      color: #324b5a;
+      line-height: 70px;
+  }
+    background-color: #e8edf3;
+    border-radius: 50px;
+    box-shadow: inset 4px -4px 8px #408e96, -4px 4px 8px #378a92, inset -4px 4px 8px #abe3e8, 4px -4px 8px #9ae3ea;
+  }
+  .screen5-card-content {
+    box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
+    background-image: linear-gradient(to bottom, #e8edf3 75%, #95f0ea);
+    -webkit-mask-image: url("../../public/images/tx.png");
+  }
+  .screen5-card-bottom {
+    background-image: linear-gradient(to bottom, #e8edf3 20%, #69e4dc);
+    -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
+  }
+}
+.screen6{
+
 }
 </style>
