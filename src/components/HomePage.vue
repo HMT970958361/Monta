@@ -138,9 +138,15 @@
         <h1>风色幻想</h1>
       </div>
       <div class="screen5-card-content">
-        <p>游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。玩家将扮演一位名为“旅行者”的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘“原神”的真相。</p>
-        <p>剑灵凭借完美的视觉表现力,电影版的剧情体验,深厚的东方文化底蕴,自由灵活的战斗体验,成为突破传统、引领潮流的最受期待网游。</p>
-        <p>天地处于“混沌”状态，有“盘古”生于其间。盘古身体不断成长，原来的混沌状态不能容纳其身体而分裂，“清气”上升为天，“浊气”沉降为地。盘古死后，其精、气、神分化成三位大神，分别为伏羲、神农、女娲。</p>
+        <p>
+          游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。玩家将扮演一位名为“旅行者”的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘“原神”的真相。
+        </p>
+        <p>
+          剑灵凭借完美的视觉表现力,电影版的剧情体验,深厚的东方文化底蕴,自由灵活的战斗体验,成为突破传统、引领潮流的最受期待网游。
+        </p>
+        <p>
+          天地处于“混沌”状态，有“盘古”生于其间。盘古身体不断成长，原来的混沌状态不能容纳其身体而分裂，“清气”上升为天，“浊气”沉降为地。盘古死后，其精、气、神分化成三位大神，分别为伏羲、神农、女娲。
+        </p>
       </div>
       <div class="screen5-card-bottom"></div>
     </div>
@@ -149,7 +155,11 @@
       <div class="screen5-card-title">
         <h1>剑&nbsp;灵</h1>
       </div>
-      <div class="screen5-card-content"></div>
+      <div class="screen5-card-content">
+        <p>
+          剑灵凭借完美的视觉表现力,电影版的剧情体验,深厚的东方文化底蕴,自由灵活的战斗体验,成为突破传统、引领潮流的最受期待网游。
+        </p>
+      </div>
       <div class="screen5-card-bottom"></div>
     </div>
     <div class="screen5-card3">
@@ -157,17 +167,97 @@
       <div class="screen5-card-title">
         <h1>原&nbsp;神</h1>
       </div>
-      <div class="screen5-card-content"></div>
+      <div class="screen5-card-content">
+        <p>
+          游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。
+        </p>
+      </div>
       <div class="screen5-card-bottom"></div>
     </div>
   </div>
   <div class="screen6">
-
+    <h1>推荐文章</h1>
+    <div class="screen6-row1">
+      <div class="chart-circular" id="main"></div>
+      <div class="screen6-card1">
+        <div class="screen6-card1-header">
+          <span class="iconfont icon-danmu"></span>
+          <h4>General Message</h4>
+        </div>
+        <div class="screen6-card1-info">
+          <p><span>2318</span> <span>Group </span></p>
+          <p>Full exon sequence</p>
+          <meter value="7" min="0" max="10" low="6" high="8"></meter>
+        </div>
+      </div>
+      <div class="screen6-card1">
+        <div class="screen6-card1-header">
+          <span class="iconfont icon-shoucang"></span>
+          <h4>Virus Sequence</h4>
+        </div>
+        <div class="screen6-card1-info">
+          <p><span>42,324</span> <span>CFU</span></p>
+          <p>Full exon sequence</p>
+          <meter value="4" min="0" max="10" low="6" high="8"></meter>
+        </div>
+      </div>
+    </div>
+    <div class="screen6-row2">
+      <div class="screen6-card2">
+        <div class="screen6-card2-header">
+          <span class="iconfont icon-approve"></span>
+          <h4>Cloud TEC.</h4>
+        </div>
+        <div class="screen6-card2-content">
+          Can could etc Can Can is an auxiliary verb, a modal auxiliary verb. We
+          use can to:∙talk about possibility and ability ∙make requests
+        </div>
+      </div>
+      <div class="screen6-card2">
+                <div class="screen6-card2-header">
+          <span class="iconfont icon-approve"></span>
+          <h4>Cloud TEC.</h4>
+        </div>
+        <div class="screen6-card2-content">
+          Can could etc Can Can is an auxiliary verb, a modal auxiliary verb. We
+          use can to:∙talk about possibility and ability ∙make requests
+        </div>
+      </div>
+      <div class="screen6-card2">
+                <div class="screen6-card2-header">
+          <span class="iconfont icon-approve"></span>
+          <h4>Cloud TEC.</h4>
+        </div>
+        <div class="screen6-card2-content">
+          Can could etc Can Can is an auxiliary verb, a modal auxiliary verb. We
+          use can to:∙talk about possibility and ability ∙make requests
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="screen7">
+    <h1>下载</h1>
+    <p>点击下载相关信息</p>
+    <div class="screen7-row">
+      <div class="screen7-ring"></div>
+      <div class="screen7-sorts">
+        <div class="sort">
+          <h4><span>01</span>作品源码</h4>
+        </div>
+        <div class="sort">
+          <h4><span>02</span>电子文档</h4>
+        </div>
+        <div class="sort">
+          <h4><span>03</span>用户手册</h4>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { defineComponent, reactive, ref } from "vue";
+import * as echarts from "echarts";
 export default defineComponent({
   setup(props, context) {
     let topNav = reactive({
@@ -189,7 +279,54 @@ export default defineComponent({
     return {};
   },
   methods: {},
-  mounted() {},
+  mounted() {
+    var myChart = echarts.init(document.getElementById("main"));
+
+    // 指定图表的配置项和数据
+    var option = {
+      legend: {
+        top: "bottom",
+      },
+      toolbox: {
+        show: true,
+        feature: {
+          mark: { show: true },
+          dataView: { show: true, readOnly: false },
+          restore: { show: true },
+          saveAsImage: { show: true },
+        },
+      },
+      legend: {
+        show: false,
+      },
+      series: [
+        {
+          name: "面积模式",
+          type: "pie",
+          radius: [80, 100],
+          center: ["50%", "50%"],
+          roseType: "radius",
+          itemStyle: {
+            borderRadius: 1,
+            shadowColor: "#aeb8ce",
+            shadowOffsetX: 5,
+            shadowOffsetY: 10,
+            shadowBlur: 10,
+          },
+          color: ["#b7c4cf", "#9489d0", "#7e9fca", "#b9c5cf", "#fff"],
+          data: [
+            { value: 25, name: "1" },
+            { value: 20, name: "2" },
+            { value: 10, name: "3" },
+            { value: 8, name: "4" },
+            { value: 4, name: "5" },
+          ],
+        },
+      ],
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  },
   watch: {},
 });
 </script>
@@ -288,7 +425,7 @@ body {
   background-image: url("../../public/images/bk1.png");
   background-color: @colorBk;
   background-position: center;
-  background-size: 1920px 1080px;
+  background-size: 100%;
   background-repeat: no-repeat;
 }
 .introduce1 {
@@ -336,8 +473,8 @@ body {
 }
 /* 首页第2屏——技能大类页 */
 .screen2 {
-  height: 750px;
-  width: 1200px;
+  //height: 750px;
+  width: 100%;
   margin: 0 auto;
   box-shadow: 0 -50px 60px #e8edf3;
   background-image: url("../../public/images/bk2.png");
@@ -347,11 +484,12 @@ body {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-end;
   .introduce2 {
+    height: 400px;
     text-align: justify;
     h1 {
       margin-bottom: 1rem;
@@ -391,6 +529,7 @@ body {
 .card {
   width: 360px;
   height: 300px;
+  margin-top: 300px;
   background-color: #eef1f5;
   border: 2px solid #d1d7dd;
   border-radius: 20px;
@@ -419,6 +558,7 @@ body {
 }
 /* 首页第3屏——播放列表页 */
 .screen3 {
+  margin-top: 300px;
   height: 600px;
   width: 100%;
   background-color: @colorBk;
@@ -436,6 +576,7 @@ body {
 .vediocards {
   position: absolute;
   width: 100%;
+  min-width: 1200px;
   margin-top: -60px;
   display: flex;
   flex-direction: row;
@@ -505,7 +646,7 @@ body {
   font-family: "jzjdxcs";
   color: #626e71;
 }
-/* 首页第4屏——技能掌握页 */
+/* 首页第4屏——技能掌握 */
 .screen4 {
   background-color: @colorBk;
   height: 750px;
@@ -531,10 +672,10 @@ body {
   }
 }
 .screen4-main {
-  width: 1200px;
+  width: 1000px;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
 }
 .screen4-main-list {
@@ -593,7 +734,6 @@ body {
   }
 }
 .screen4-main-radarmap {
-  margin-left: 100px;
   width: 600px;
   height: 540px;
   border-radius: 10px;
@@ -614,7 +754,7 @@ body {
     background-size: 100%;
   }
 }
-/* 首页第5屏——技能掌握页 */
+/* 首页第5屏——游戏领域 */
 .screen5 {
   box-sizing: border-box;
   height: 700px;
@@ -637,7 +777,9 @@ body {
   height: 70px;
   background-color: #e8edf3;
   border-radius: 8px;
-    box-shadow: inset 4px -4px 8px #d89836, -4px 4px 8px #c18d3e, inset -4px 4px 8px #fff0d9, 4px -4px 8px #fffefd;}
+  box-shadow: inset 2px -2px 4px #d89836, -2px 2px 4px #c18d3e,
+    inset -2px 2px 4px #fff0d9, 2px -2px 4px #fffefd;
+}
 .screen5-card-content {
   z-index: 9;
   position: absolute;
@@ -657,37 +799,36 @@ body {
   background-color: #eebca5;
   border-radius: 10px;
   box-shadow: 2px 4px 8px #b98b74;
-      background-image: linear-gradient(to bottom, #e8edf3 20%, #dfb49f);
-    -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
+  background-image: linear-gradient(to bottom, #e8edf3 20%, #dfb49f);
+  -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
 }
 .screen5-card1 {
   height: 500px;
   width: 270px;
-  .screen5-card-title{
+  .screen5-card-title {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     padding-left: 1rem;
-    span{
+    span {
       font-size: 3rem;
     }
-    h1{
+    h1 {
       margin-left: 1rem;
       color: rgb(70, 70, 70);
     }
   }
-  .screen5-card-content{
+  .screen5-card-content {
     box-sizing: border-box;
     padding-top: 70px;
     padding: 70px 1rem;
     //overflow: auto;
-    p{
+    p {
       margin-top: 1rem;
       text-indent: 2rem;
       text-align: justify;
       color: #727272;
       font-size: 14px;
-      
     }
   }
 }
@@ -708,27 +849,38 @@ body {
     background-position: top;
   }
   .screen5-card-title {
+    margin-left: 2rem;
     box-sizing: border-box;
     position: absolute;
     z-index: 12;
-    width: 200px;
-    height: 70px;
+    width: 170px;
+    height: 55px;
     margin-top: 280px;
     background-color: #e8edf3;
     border-radius: 50px;
-    box-shadow: inset 4px -4px 8px #bbb797, -4px 4px 8px #c5ba61, inset -4px 4px 8px #e6dea6, 4px -4px 8px #d4cea5;
-    h1{
+    box-shadow: inset 2px -2px 4px #bbb797, -1px 1px 2px #c5ba61,
+      inset -2px 2px 4px #e6dea6, 1px -1px 2px #d4cea5;
+    h1 {
       text-align: center;
       color: #473219;
-      line-height: 70px;
-  }
+      line-height: 55px;
     }
- 
+  }
+
   .screen5-card-content {
     z-index: 10;
     box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
     background-image: linear-gradient(to bottom, #e8edf3 75%, #f6e393);
     -webkit-mask-image: url("../../public/images/tx.png");
+    p {
+      position: absolute;
+      bottom: 0px;
+      text-indent: 2rem;
+      text-align: justify;
+      color: #727272;
+      font-size: 14px;
+      padding: 1rem;
+    }
   }
   .screen5-card-bottom {
     background-image: linear-gradient(to bottom, #e8edf3 20%, #e6d381);
@@ -751,32 +903,207 @@ body {
     background-position: top;
   }
   .screen5-card-title {
+    margin-left: 2rem;
     box-sizing: border-box;
     position: absolute;
     z-index: 12;
-    width: 200px;
-    height: 70px;
+    width: 170px;
+    height: 55px;
     margin-top: 280px;
-    h1{
+    h1 {
       text-align: center;
       color: #324b5a;
-      line-height: 70px;
-  }
+      line-height: 55px;
+    }
     background-color: #e8edf3;
     border-radius: 50px;
-    box-shadow: inset 4px -4px 8px #408e96, -4px 4px 8px #378a92, inset -4px 4px 8px #abe3e8, 4px -4px 8px #9ae3ea;
+    box-shadow: inset 2px -2px 2px #408e96, -1px 1px 2px #378a92,
+      inset -2px 2px 2px #abe3e8, 1px -1px 2px #9ae3ea;
   }
   .screen5-card-content {
     box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
     background-image: linear-gradient(to bottom, #e8edf3 75%, #95f0ea);
     -webkit-mask-image: url("../../public/images/tx.png");
+    p {
+      position: absolute;
+      bottom: 0px;
+      text-indent: 2rem;
+      text-align: justify;
+      color: #727272;
+      font-size: 14px;
+      padding: 1rem;
+    }
   }
   .screen5-card-bottom {
     background-image: linear-gradient(to bottom, #e8edf3 20%, #69e4dc);
     -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
   }
 }
-.screen6{
-
+/* 首页第6屏——文章推荐 */
+.screen6 {
+  box-sizing: border-box;
+  height: 900px;
+  width: 1200px;
+  margin: 0px auto;
+  padding: 50px 0;
+  background-color: @colorBk;
+  h1 {
+    margin-left: 6rem;
+  }
 }
+.screen6-row1 {
+  height: 240px;
+  width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.screen6-row2 {
+  margin-top: 50px;
+  height: 240px;
+  width: 1200px;
+  margin: 100px auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.chart-circular {
+  height: 240px;
+  width: 280px;
+  //border: 1px solid #000;
+}
+.screen6-card1 {
+  height: 240px;
+  width: 280px;
+  //border: 1px solid #000;
+  border-radius: 40px 0 10px 10px;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px 4px rgb(206, 206, 206), -2px -2px 4px 4px #fff;
+  .screen6-card1-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    box-shadow: 2px 2px 10px 4px rgb(206, 206, 206), -2px -2px 4px 4px #fff;
+    span {
+      display: block;
+      width: 70px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 2rem;
+      
+      background: #5b8fd5;
+    }
+    h4 {
+      line-height: 50px;
+      width: 210px;
+      text-align: center;
+      font-size: 1.2rem;
+      background: #85a4cd;
+    }
+  }
+  .screen6-card1-info {
+    padding: 2rem;
+    p:first-child {
+      span:first-child {
+        font-size: 2.4rem;
+      }
+      span:last-child {
+        font-size: 1.5rem;
+      }
+    }
+    p:nth-child(2) {
+      color: #848484;
+      padding: 0.2rem 0 1rem 0;
+    }
+    meter:nth-child(3) {
+      width: 200px;
+    }
+  }
+}
+.screen6-card2 {
+  height: 240px;
+  width: 280px;
+  //border: 1px solid #000;
+    border-radius: 10px;
+  box-shadow: 2px 2px 10px 4px rgb(206, 206, 206), -2px -2px 4px 4px #fff;
+  .screen6-card2-header {
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    background-color: #d9dee4;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 4px rgb(206, 206, 206), -2px -2px 4px 4px #fff;
+    span {
+      font-size: 30px;
+      padding: 10px;
+      color: #fff;
+      background-color: #626e71;
+      border-radius: 50%;
+      position: relative;
+      margin: -20px 0 0 -20px;
+    }
+    h4 {
+      margin-left: 2rem;
+      font-size: 1.8rem;
+      line-height: 50px;
+    }
+  }
+  .screen6-card2-content{
+        padding: 1.5rem;
+    font-size: 0.8rem;
+    color: #9da1a7;
+  }
+}
+
+/* 首页第7屏——下载 */
+.screen7 {
+  height: 500px;
+  width: 1200px;
+  padding: 50px 0;
+  margin: 0 auto;
+  h1 {
+  }
+  p {
+    line-height: 3rem;
+  }
+}
+.screen7-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.screen7-ring {
+  height: 200px;
+  width: 200px;
+  border: 1px solid #414141;
+}
+.screen7-sorts {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 800px;
+  .sort {
+    span {
+      font-size: 3rem;
+    }
+    h4 {
+      font-weight: normal;
+      font-size: 2rem;
+    }
+  }
+}
+/* 首页第8屏——页脚 */
 </style>
