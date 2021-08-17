@@ -239,7 +239,14 @@
     <h1>下载</h1>
     <p>点击下载相关信息</p>
     <div class="screen7-row">
-      <div class="screen7-ring"></div>
+      <div class="screen7-ring">
+        <div class="screen7-ring-inset">
+          92%
+        </div>
+        <div class="screen7-ring-inset2">
+
+        </div>
+      </div>
       <div class="screen7-sorts">
         <div class="sort">
           <h4><span>01</span>作品源码</h4>
@@ -779,6 +786,7 @@ body {
   border-radius: 8px;
   box-shadow: inset 2px -2px 4px #d89836, -2px 2px 4px #c18d3e,
     inset -2px 2px 4px #fff0d9, 2px -2px 4px #fffefd;
+  
 }
 .screen5-card-content {
   z-index: 9;
@@ -815,7 +823,8 @@ body {
     }
     h1 {
       margin-left: 1rem;
-      color: rgb(70, 70, 70);
+      color: #46464626;
+      text-shadow: 1px 3px 6px #e8edf3, 0 0 0 #d89d5a, 1px 3px 6px #e8edf3;
     }
   }
   .screen5-card-content {
@@ -860,10 +869,12 @@ body {
     border-radius: 50px;
     box-shadow: inset 2px -2px 4px #bbb797, -1px 1px 2px #c5ba61,
       inset -2px 2px 4px #e6dea6, 1px -1px 2px #d4cea5;
+    
     h1 {
       text-align: center;
-      color: #473219;
+      color: #47321980;
       line-height: 55px;
+      text-shadow: 1px 3px 6px #e8edf3, 0 0 0 rgb(61, 42, 21)6e, 1px 3px 6px #e8edf3;
     }
   }
 
@@ -912,8 +923,9 @@ body {
     margin-top: 280px;
     h1 {
       text-align: center;
-      color: #324b5a;
+      color: #324b5a44;
       line-height: 55px;
+            text-shadow: 1px 3px 6px #e8edf3, 0 0 0 #23343f, 1px 3px 6px #e8edf3;
     }
     background-color: #e8edf3;
     border-radius: 50px;
@@ -1088,6 +1100,34 @@ body {
   height: 200px;
   width: 200px;
   border: 1px solid #414141;
+  border-radius: 50%;
+  background-image: linear-gradient(90deg, #ffb18d 30%, #dc528f,#4953ce);
+  -webkit-mask-image: linear-gradient(180deg, black, transparent);
+
+}
+.screen7-ring-inset{
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  background-color: #e8edf3;
+  margin: 20px 20px;
+    text-align: center;
+    line-height: 160px;
+    font-size: 40px;
+    color: #d8dee4ad;
+    font-weight: 800;
+    text-shadow: 1px 3px 6px #e8edf3, 0 0 0 #000, 1px 3px 6px #e8edf3;
+    box-shadow: 2px 4px 12px #000;
+}
+.screen7-ring-inset2{
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    border: 5px solid #f9f9f9;
+    margin: 30px 30px;
+    box-shadow: inset -4px -4px 8px #d8d8d8, -2px -2px 2px #c5c5c5, inset 2px 2px 4px #c8d4d4, -4px -4px 8px #f5f5f5;
 }
 .screen7-sorts {
   display: flex;
@@ -1095,13 +1135,21 @@ body {
   justify-content: space-evenly;
   align-items: center;
   width: 800px;
-  .sort {
-    span {
-      font-size: 3rem;
-    }
-    h4 {
-      font-weight: normal;
-      font-size: 2rem;
+}
+.sort{
+  h4{
+    font-weight: normal;
+    font-size: 2rem;
+    color: #626e71;
+    font-family: 'jzjdxcs';
+    span{
+      margin-right: 1.2rem;
+    font-size: 4rem;
+    font-weight: 800;
+    color: transparent;
+    text-shadow: -4px -3px 5px #ffffff;
+    background-image: -webkit-linear-gradient(bottom,#ffffff,#828282,#ffffff);
+    -webkit-background-clip: text;
     }
   }
 }
