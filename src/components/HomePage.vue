@@ -1207,7 +1207,7 @@ body {
   .screen5-card-content {
     z-index: 10;
     box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
-    background-image: linear-gradient(to bottom, #e8edf3 75%, #f6e393);
+    background-image: linear-gradient(to bottom, #e8edf3 50%, #f6e393);
     -webkit-mask-image: url("../../public/images/tx.png");
     p {
       position: absolute;
@@ -1260,7 +1260,7 @@ body {
   }
   .screen5-card-content {
     box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
-    background-image: linear-gradient(to bottom, #e8edf3 75%, #95f0ea);
+    background-image: linear-gradient(to bottom, #e8edf3 50%, #95f0ea);
     -webkit-mask-image: url("../../public/images/tx.png");
     p {
       position: absolute;
@@ -1322,23 +1322,26 @@ body {
   //border: 1px solid #000;
   border-radius: 40px 0 10px 10px;
   overflow: hidden;
-  box-shadow: 2px 2px 10px 4px rgb(206, 206, 206), -2px -2px 4px 4px #fff;
+  box-shadow: 4px 4px 8px 2px #95a5a9, -2px -2px 13px 4px #fff;
   .screen6-card1-header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
     color: #fff;
+    overflow: hidden;
     box-shadow: 2px 2px 10px 4px rgb(206, 206, 206), -2px -2px 4px 4px #fff;
     span {
+      position: relative;
+      z-index: 11;
       display: block;
       width: 70px;
       height: 50px;
       text-align: center;
       line-height: 50px;
       font-size: 2rem;
-
       background: #5b8fd5;
+      box-shadow: 6px 0px 12px rgb(95, 95, 95);
     }
     h4 {
       line-height: 50px;
@@ -1372,15 +1375,15 @@ body {
   width: 280px;
   //border: 1px solid #000;
   border-radius: 10px;
-  box-shadow: 2px 2px 10px 4px rgb(206, 206, 206), -2px -2px 4px 4px #fff;
+  box-shadow: 4px 4px 8px 2px #95a5a9, -2px -2px 13px 4px #fff;
   .screen6-card2-header {
     height: 50px;
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-start;
     background-color: #d9dee4;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px 4px rgb(206, 206, 206), -2px -2px 4px 4px #fff;
+    border-radius: 4px;
+    box-shadow: 4px 4px 6px 0px #cecece, -2px -2px 4px 0px #fff;
     span {
       font-size: 30px;
       padding: 10px;
