@@ -40,7 +40,7 @@
       <h3>
         特定顺序组织的计算机数据和指令赋予它灵魂，是无形的，没有物理形态，渗透了人类大量的脑力劳动和逻辑思维，软件具有可复用性。
       </h3>
-      <div class="basebtn">了解更多&nbsp;&nbsp;&nbsp;▶</div>
+      <div class="basebtn">了解更多<span>▶</span></div>
       <!-- <img src="../../public/images/cpu.png" alt="ai" height="240px"> -->
     </div>
     <div class="card">
@@ -66,19 +66,18 @@
           线圈
         </h2>
         <div class="palybtn"></div>
-        <!-- <img src="../../public/images/crle.png" alt=""> -->
       </div>
       <div class="vedioc2">
         <h3 class="vedioc2-title">无线呼叫系统</h3>
-        <div class="basebtn">了解更多&nbsp;&nbsp;&nbsp;▶</div>
+        <div class="basebtn">了解更多<span>▶</span></div>
       </div>
       <div class="vedioc2">
         <h3 class="vedioc2-title">玖玖点餐</h3>
-        <div class="basebtn">了解更多&nbsp;&nbsp;&nbsp;▶</div>
+        <div class="basebtn">了解更多<span>▶</span></div>
       </div>
       <div class="vedioc2">
         <h3 class="vedioc2-title">石柱房产网</h3>
-        <div class="basebtn">了解更多&nbsp;&nbsp;&nbsp;▶</div>
+        <div class="basebtn">了解更多<span>▶</span></div>
       </div>
     </div>
   </div>
@@ -89,50 +88,24 @@
         <p>软硬双休，文理兼备，是不可多得的好人选</p>
       </div>
       <div class="screen4-main">
-        <div class="screen4-main-list">
-          <div class="skillcard">
+        <ul class="screen4-list">
+          <li
+            v-for="(item, index) in Skills"
+            :key="item.name"
+            :class="['skillcard', index == 1 ? 'skillselected' : '']"
+          >
             <img
-              src="../../public/images/cpu.png"
-              alt=""
+              :src="'../../public/images/' + item.photo"
+              alt="item.name"
               width="80"
               height="80"
             />
-            <h4 class="skillname">电子技术</h4>
+            <h4 class="skillname">{{ item.name }}</h4>
             <span class="iconfont icon-play"></span>
-          </div>
-          <div class="skillcard skillselected">
-            <img
-              src="../../public/images/cpu.png"
-              alt=""
-              width="80"
-              height="80"
-            />
-            <h4 class="skillname">Web前端</h4>
-            <span class="iconfont icon-play"></span>
-          </div>
-          <div class="skillcard">
-            <img
-              src="../../public/images/cpu.png"
-              alt=""
-              width="80"
-              height="80"
-            />
-            <h4 class="skillname">工具辅助</h4>
-            <span class="iconfont icon-play"></span>
-          </div>
-          <div class="skillcard">
-            <img
-              src="../../public/images/cpu.png"
-              alt=""
-              width="80"
-              height="80"
-            />
-            <h4 class="skillname">工具辅助</h4>
-            <span class="iconfont icon-play"></span>
-          </div>
-        </div>
-        <div class="screen4-main-radarmap">
-          <div class="lbx"></div>
+          </li>
+        </ul>
+        <div class="screen4-main-radar">
+          <div class="lbx" id="radar"></div>
         </div>
       </div>
     </div>
@@ -184,7 +157,7 @@
   <div class="screen6">
     <h1>推荐文章</h1>
     <div class="screen6-row1">
-      <div class="chart-circular" id="main"></div>
+      <div class="chart-circular" id="echartsRing"></div>
       <div class="screen6-card1">
         <div class="screen6-card1-header">
           <span class="iconfont icon-danmu"></span>
@@ -325,14 +298,20 @@ export default defineComponent({
       "icon-guge",
       "icon-liuyan",
     ]);
-    return { topNav, footerNavs, followIcons };
+    let Skills = reactive([
+      { name: "电子技术", photo: "cpu.png" },
+      { name: "Web前端", photo: "cpu.png" },
+      { name: "软件应用", photo: "cpu.png" },
+      { name: "社会实践", photo: "cpu.png" },
+    ]);
+    return { topNav, footerNavs, followIcons, Skills };
   },
   data() {
     return {};
   },
-  methods: {},
-  mounted() {
-    var myChart = echarts.init(document.getElementById("main"));
+  methods: {
+    echartsRing(){
+    var myChart = echarts.init(document.getElementById("echartsRing"));
 
     // 指定图表的配置项和数据
     var option = {
@@ -378,6 +357,146 @@ export default defineComponent({
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
+    },
+    echartsRadar() {
+      var chartDom = document.getElementById("radar");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      // Schema:
+      // date,AQIindex,PM2.5,PM10,CO,NO2,SO2
+      var dataBJ = [[85, 88, 75, 74.8, 72, 78]];
+
+      var dataGZ = [[26, 37, 27, 76, 27, 13, 1]];
+
+      var dataSH = [[91, 45, 87, 65, 64, 23, 50]];
+      var dataSY = [[91, 45, 66, 57, 34, 23, 10]];
+
+      var lineStyle = {
+        normal: {
+          width: 1,
+          opacity: 0.5,
+        },
+      };
+
+      option = {
+        //backgroundColor: '#e8edf3',
+        // title: {
+        //   text: "技术栈-六维图",
+        //   left: "center",
+        //   textStyle: {
+        //     color: "#000",
+        //     fontSize: 24,
+        //   },
+        // },
+        legend: {
+          bottom: 5,
+          data: ["电子技术", "Web前端", "软件应用", "社会实践"],
+          itemGap: 20,
+          textStyle: {
+            color: "#000",
+            fontSize: 14,
+          },
+          selectedMode: "multiple",
+        },
+        radar: {
+          indicator: [
+            { name: "模拟电路", max: 100 },
+            { name: "数字电路", max: 100 },
+            { name: "信号分析", max: 100 },
+            { name: "高等数学", max: 100 },
+            { name: "线性代数", max: 100 },
+            { name: "信号系统", max: 100 },
+          ],
+          //shape: 'circle',
+          //splitNumber: 5,
+          name: {
+            textStyle: {
+              color: "#5e697c",
+            },
+          },
+          splitLine: {
+            lineStyle: {
+              color: [
+                "rgba(134, 147, 165, 0.1)",
+                "rgba(134, 147, 165, 0.2)",
+                "rgba(134, 147, 165, 0.4)",
+                "rgba(134, 147, 165, 0.6)",
+                "rgba(134, 147, 165, 0.8)",
+                "rgba(134, 147, 165, 1)",
+              ].reverse(),
+            },
+          },
+          splitArea: {
+            show: false,
+          },
+          axisLine: {
+            lineStyle: {
+              color: "rgba(119, 136, 153, 0.5)",
+            },
+          },
+        },
+        series: [
+          {
+            name: "电子技术",
+            type: "radar",
+            lineStyle: lineStyle,
+            data: dataBJ,
+            symbol: "none",
+            itemStyle: {
+              color: "#F9713C",
+            },
+            areaStyle: {
+              opacity: 0.1,
+            },
+          },
+          {
+            name: "Web前端",
+            type: "radar",
+            lineStyle: lineStyle,
+            data: dataSH,
+            symbol: "none",
+            itemStyle: {
+              color: "#20b2aa",
+            },
+            areaStyle: {
+              opacity: 0.05,
+            },
+          },
+          {
+            name: "软件应用",
+            type: "radar",
+            lineStyle: lineStyle,
+            data: dataGZ,
+            symbol: "none",
+            itemStyle: {
+              color: "#ff8c00",
+            },
+            areaStyle: {
+              opacity: 0.05,
+            },
+          },
+          {
+            name: "社会实践",
+            type: "radar",
+            lineStyle: lineStyle,
+            data: dataSY,
+            symbol: "none",
+            itemStyle: {
+              color: "#0000ff",
+            },
+            areaStyle: {
+              opacity: 0.05,
+            },
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+    },
+  },
+  mounted() {
+    this.echartsRing();
+    this.echartsRadar();
   },
   watch: {},
 });
@@ -398,28 +517,25 @@ export default defineComponent({
 }
 @themeColor: #565656;
 @colorBk: #e8edf3;
-@colorFont:#565656;
+@colorFont: #565656;
 * {
   margin: 0;
   padding: 0;
 }
 a {
-  transition: all .5s;
+  text-decoration: none;
+  transition: all 0.5s;
   &:link {
     color: #d6d6d6;
-    text-decoration: none;
   }
   &:visited {
     color: @colorFont;
-    text-decoration: none;
   }
   &:hover {
     color: #ddcd3a;
-    text-decoration: none;
   }
   &:active {
     color: #f19f32;
-    text-decoration: none;
   }
 }
 ul {
@@ -446,7 +562,7 @@ body {
     border: 4px solid #afafaf;
     border-radius: 50%;
     box-shadow: 2px 2px 4px #4a4a4a;
-    transition: all .5s;
+    transition: all 0.5s;
     cursor: pointer;
     .top-logo {
       width: 50px;
@@ -461,13 +577,16 @@ body {
       font-family: "Threadz";
       -webkit-mask-image: linear-gradient(180deg, black 20%, #fff0);
       //text-shadow: 1px 3px 6px #f2f3e8, 0 0 0 #000000, 1px 3px 6px #f3f2e8;
-      transition: all .5s;
-      &:hover{
-        color:#505050;
-      }
+      transition: all 0.5s;
+      // &:hover{
+      //   color:#505050;
+      // }
     }
-    &:hover{
-      box-shadow: -0px -0px 4px #a1a1a1;
+    &:hover {
+      box-shadow: -0px -0pax 4px #a1a1a1;
+      .top-logo a {
+        color: #ddcd3a;
+      }
     }
   }
   .top-nav {
@@ -476,7 +595,7 @@ body {
     flex-flow: row nowrap;
     justify-content: space-evenly;
     align-items: center;
-    
+
     li {
       padding: 0 10px;
       line-height: 60px;
@@ -501,7 +620,7 @@ body {
   align-items: center;
 }
 .introduce1 {
-  margin-left: 6rem;
+  padding: 0 6rem;
   h1 {
     font-size: 4rem;
     padding: 1rem 0;
@@ -576,6 +695,7 @@ body {
   }
 }
 .basebtn {
+  cursor: pointer;
   margin-left: 4rem;
   width: 150px;
   height: 50px;
@@ -583,19 +703,28 @@ body {
   font-size: 14px;
   font-family: "jzjdxcs";
   color: #8c8c8c;
-  text-align: center;
-  background-image: url('../../public/images/btn.png');
+  text-indent: 2rem;
+  //text-align: center;
+  background-image: url("../../public/images/btn.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
+  transition: all 0.5s;
+  span {
+    transition: all 0.5s;
+    margin-left: 10px;
+  }
   //border-radius: 20px;
   //background-color: @colorBk;
   //border: 4px solid #e8edf3;
   //box-shadow: 4px 8px 12px #d9dfe4, -2px -2px 4px #fff;
   //filter: drop-shadow(2px 4px 6px #cbd3d8);
-  transition: all 0.5s ease-out;
-    &:hover{
-    background-image: url('../../public/images/btn2.png');
+
+  &:hover {
+    background-image: url("../../public/images/btn2.png");
+    span {
+      margin-left: 20px;
+    }
   }
   // &:hover {
   //   box-shadow: 0 0 0 rgba(0, 0, 0, 0.1), 0 0 0 rgba(255, 255, 255, 1),
@@ -612,8 +741,8 @@ body {
   //border-radius: 20px;
   //box-shadow: 2px 2px 4px 4px #cbd3d8, -2px -2px 4px 4px #fff;
   color: #787a7b;
-  transition: all .5s;
-  background-image: url('../../public/images/jb.png');
+  transition: all 0.5s;
+  background-image: url("../../public/images/jb.png");
   background-size: auto 360px;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -622,8 +751,8 @@ body {
   //     inset 18px 18px 30px rgba(0, 0, 0, 0.1),
   //     inset -18px -18px 30px rgba(255, 255, 255, 1);
   // }
-  &:hover{
-    background-image: url('../../public/images/jb2.png');
+  &:hover {
+    background-image: url("../../public/images/jb2.png");
   }
   img {
     position: absolute;
@@ -643,10 +772,11 @@ body {
 }
 /* 首页第3屏——播放列表页 */
 .screen3 {
-  margin-top: 300px;
-  height: 600px;
+  height: 1280px;
   width: 100%;
-  background-color: @colorBk;
+  background-color: #e8edf3;
+  display: flex;
+  align-items: center;
 }
 .m1 {
   position: absolute;
@@ -656,16 +786,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1920px 900px;
-  box-shadow: inset 0 4px 8px 4px #98a7b5;
+  box-shadow: inset 0 14px 20px #3b4146;
 }
 .vediocards {
   position: absolute;
   width: 100%;
-  min-width: 1200px;
-  margin-top: -60px;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
   align-items: flex-end;
@@ -675,6 +803,7 @@ body {
   height: 450px;
   width: 270px;
   padding: 2rem 3rem;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -683,7 +812,7 @@ body {
   justify-content: space-around;
   border-radius: 20px;
   background-image: linear-gradient(to bottom, #c0cad5, #98a7b5);
-  box-shadow: 2px 2px 4px 4px #cbd3d8, -2px -2px 4px 4px #fff;
+  box-shadow: 2px 2px 8px 0px #72797d, -2px -2px 8px 0px #fff;
   .icon-yuanzi {
     font-size: 6rem;
     color: #e7eff1;
@@ -697,21 +826,24 @@ body {
     text-shadow: 2px 2px 4px #3f4244, -2px -2px 4px #fff;
   }
   .palybtn {
+    cursor: pointer;
     height: 100px;
     width: 100px;
-    background-image: url('../../public/images/play.png');
+    background-image: url("../../public/images/play.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: bottom;
-    transition: all .5s ease-in;
+    transition: all 0.3s ease-in;
     &:hover {
-      background-image: url('../../public/images/play2.png');
+      background-image: url("../../public/images/play2.png");
     }
   }
 }
 .vedioc2 {
+  box-sizing: border-box;
   width: 270px;
   height: 230px;
+  margin: 10px;
   border: 4px solid #e1e9ef;
   border-radius: 10px;
   filter: drop-shadow(4px 8px 8px #cbd3d8);
@@ -761,7 +893,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
 }
-.screen4-main-list {
+.screen4-list {
   height: 540px;
   display: flex;
   flex-direction: column;
@@ -816,7 +948,7 @@ body {
     }
   }
 }
-.screen4-main-radarmap {
+.screen4-main-radar {
   width: 600px;
   height: 540px;
   border-radius: 10px;
@@ -831,10 +963,10 @@ body {
     border-radius: 10px;
     background-color: #e8edf3;
     box-shadow: -8px -8px 18px #ffffff, 8px 8px 18px #cacfd4;
-    text-align: center;
-    line-height: 540px;
-    background-image: url("../../public/images/zz.png");
-    background-size: 100%;
+    // text-align: center;
+    // line-height: 540px;
+    // background-image: url("../../public/images/zz.png");
+    // background-size: 100%;
   }
 }
 /* 首页第5屏——游戏领域 */
