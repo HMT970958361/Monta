@@ -85,14 +85,15 @@
     <div class="screen4-box">
       <div class="screen4-header">
         <h1>技术栈</h1>
-        <p>软硬双休，文理兼备，是不可多得的好人选</p>
+        <p>软硬双修，文理兼备，乐善人生</p>
       </div>
       <div class="screen4-main">
         <ul class="screen4-list">
           <li
             v-for="(item, index) in Skills"
             :key="item.name"
-            :class="['skillcard', index == 1 ? 'skillselected' : '']"
+            :class="['skillcard', index == skillNum ? 'skillselected' : '']"
+            @click="skillSel(index)"
           >
             <img
               :src="'../../public/images/' + item.photo"
@@ -307,79 +308,201 @@ export default defineComponent({
     return { topNav, footerNavs, followIcons, Skills };
   },
   data() {
-    return {};
-  },
-  methods: {
-    echartsRing(){
-    var myChart = echarts.init(document.getElementById("echartsRing"));
-
-    // 指定图表的配置项和数据
-    var option = {
-      legend: {
-        top: "bottom",
-      },
-      toolbox: {
-        show: true,
-        feature: {
-          mark: { show: true },
-          dataView: { show: true, readOnly: false },
-          restore: { show: true },
-          saveAsImage: { show: true },
-        },
-      },
-      legend: {
-        show: false,
-      },
-      series: [
+    return {
+      skillNum: 1,
+      radarEchart: {},
+      radarData: [
         {
-          name: "面积模式",
-          type: "pie",
-          radius: [80, 100],
-          center: ["50%", "50%"],
-          roseType: "radius",
-          itemStyle: {
-            borderRadius: 1,
-            shadowColor: "#aeb8ce",
-            shadowOffsetX: 5,
-            shadowOffsetY: 10,
-            shadowBlur: 10,
+          name: "电子技术",
+          option: {
+            legend: {
+              data: ["电子技术"],
+            },
+            radar: {
+              indicator: [
+                { name: "模拟电子技术", max: 100 },
+                { name: "数字电子技术", max: 100 },
+                { name: "高频电路", max: 100 },
+                { name: "信号与系统", max: 100 },
+                { name: "通信原理", max: 100 },
+                { name: "线性代数", max: 100 },
+              ],
+            },
+            series: {
+              name: "电子技术",
+              type: "radar",
+              lineStyle: {
+                width: 1,
+                opacity: 0.5,
+              },
+              data: [[89, 78, 86, 75, 81, 86]],
+              symbol: "none",
+              itemStyle: {
+                color: "#F1513C",
+              },
+              areaStyle: {
+                opacity: 0.1,
+              },
+            },
           },
-          color: ["#b7c4cf", "#9489d0", "#7e9fca", "#b9c5cf", "#fff"],
-          data: [
-            { value: 25, name: "1" },
-            { value: 20, name: "2" },
-            { value: 10, name: "3" },
-            { value: 8, name: "4" },
-            { value: 4, name: "5" },
-          ],
+        },
+        {
+          name: "Web前端",
+          option: {
+            legend: {
+              data: ["Web前端"],
+            },
+            radar: {
+              indicator: [
+                { name: "JavaScript", max: 100 },
+                { name: "CSS", max: 100 },
+                { name: "HTML", max: 100 },
+                { name: "Vue", max: 100 },
+                { name: "Nodejs", max: 100 },
+                { name: "HTTP", max: 100 },
+              ],
+            },
+            series: {
+              name: "Web前端",
+              type: "radar",
+              lineStyle: {
+                width: 1,
+                opacity: 0.5,
+              },
+              data: [[80, 80, 85, 80, 65, 60]],
+              symbol: "none",
+              itemStyle: {
+                color: "#F9713C",
+              },
+              areaStyle: {
+                opacity: 0.1,
+              },
+            },
+          },
+        },
+        {
+          name: "软件应用",
+          option: {
+            legend: {
+              data: ["软件应用"],
+            },
+            radar: {
+              indicator: [
+                { name: "VSCode", max: 100 },
+                { name: "CSS", max: 100 },
+                { name: "HTML", max: 100 },
+                { name: "Vue", max: 100 },
+                { name: "Nodejs", max: 100 },
+                { name: "HTTP", max: 100 },
+              ],
+            },
+            series: {
+              name: "软件应用",
+              type: "radar",
+              lineStyle: {
+                width: 1,
+                opacity: 0.5,
+              },
+              data: [[85, 88, 75, 74.8, 72, 78]],
+              symbol: "none",
+              itemStyle: {
+                color: "#ff8c00",
+              },
+              areaStyle: {
+                opacity: 0.05,
+              },
+            },
+          },
+        },
+        {
+          name: "社会实践",
+          option: {
+            legend: {
+              data: ["社会实践"],
+            },
+            radar: {
+              indicator: [
+                { name: "VSCode", max: 100 },
+                { name: "CSS", max: 100 },
+                { name: "HTML", max: 100 },
+                { name: "Vue", max: 100 },
+                { name: "Nodejs", max: 100 },
+                { name: "HTTP", max: 100 },
+              ],
+            },
+            series: {
+              name: "社会实践",
+              type: "radar",
+              lineStyle: {
+                width: 1,
+                opacity: 0.5,
+              },
+              data: [[65, 67, 60, 80, 20, 31]],
+              symbol: "none",
+              itemStyle: {
+                color: "#0000ff",
+              },
+              areaStyle: {
+                opacity: 0.05,
+              },
+            },
+          },
         },
       ],
     };
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
+  },
+  methods: {
+    echartsRing() {
+      var myChart = echarts.init(document.getElementById("echartsRing"));
+
+      // 指定图表的配置项和数据
+      var option = {
+        legend: {
+          top: "bottom",
+        },
+        toolbox: {
+          show: true,
+          feature: {
+            mark: { show: true },
+            dataView: { show: true, readOnly: false },
+            restore: { show: true },
+            saveAsImage: { show: true },
+          },
+        },
+        legend: {
+          show: false,
+        },
+        series: [
+          {
+            name: "面积模式",
+            type: "pie",
+            radius: [80, 100],
+            center: ["50%", "50%"],
+            roseType: "radius",
+            itemStyle: {
+              borderRadius: 1,
+              shadowColor: "#aeb8ce",
+              shadowOffsetX: 5,
+              shadowOffsetY: 10,
+              shadowBlur: 10,
+            },
+            color: ["#b7c4cf", "#9489d0", "#7e9fca", "#b9c5cf", "#fff"],
+            data: [
+              { value: 25, name: "1" },
+              { value: 20, name: "2" },
+              { value: 10, name: "3" },
+              { value: 8, name: "4" },
+              { value: 4, name: "5" },
+            ],
+          },
+        ],
+      };
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
     },
     echartsRadar() {
-      var chartDom = document.getElementById("radar");
-      var myChart = echarts.init(chartDom);
-      var option;
-
-      // Schema:
-      // date,AQIindex,PM2.5,PM10,CO,NO2,SO2
-      var dataBJ = [[85, 88, 75, 74.8, 72, 78]];
-
-      var dataGZ = [[26, 37, 27, 76, 27, 13, 1]];
-
-      var dataSH = [[91, 45, 87, 65, 64, 23, 50]];
-      var dataSY = [[91, 45, 66, 57, 34, 23, 10]];
-
-      var lineStyle = {
-        normal: {
-          width: 1,
-          opacity: 0.5,
-        },
-      };
-
-      option = {
+      this.radarEchart = echarts.init(document.getElementById("radar"));
+      let option = {
         //backgroundColor: '#e8edf3',
         // title: {
         //   text: "技术栈-六维图",
@@ -391,7 +514,7 @@ export default defineComponent({
         // },
         legend: {
           bottom: 5,
-          data: ["电子技术", "Web前端", "软件应用", "社会实践"],
+          data: ["Web前端"],
           itemGap: 20,
           textStyle: {
             color: "#000",
@@ -401,19 +524,17 @@ export default defineComponent({
         },
         radar: {
           indicator: [
-            { name: "模拟电路", max: 100 },
-            { name: "数字电路", max: 100 },
-            { name: "信号分析", max: 100 },
-            { name: "高等数学", max: 100 },
-            { name: "线性代数", max: 100 },
-            { name: "信号系统", max: 100 },
+            { name: "JavaScript", max: 100 },
+            { name: "CSS", max: 100 },
+            { name: "HTML", max: 100 },
+            { name: "Vue", max: 100 },
+            { name: "Nodejs", max: 100 },
+            { name: "HTTP", max: 100 },
           ],
           //shape: 'circle',
           //splitNumber: 5,
-          name: {
-            textStyle: {
-              color: "#5e697c",
-            },
+          axisName: {
+            color: "#5e697c",
           },
           splitLine: {
             lineStyle: {
@@ -438,10 +559,13 @@ export default defineComponent({
         },
         series: [
           {
-            name: "电子技术",
+            name: "Web前端",
             type: "radar",
-            lineStyle: lineStyle,
-            data: dataBJ,
+            lineStyle: {
+              width: 1,
+              opacity: 0.5,
+            },
+            data: [[80, 80, 85, 80, 65, 60]],
             symbol: "none",
             itemStyle: {
               color: "#F9713C",
@@ -450,48 +574,43 @@ export default defineComponent({
               opacity: 0.1,
             },
           },
-          {
-            name: "Web前端",
-            type: "radar",
-            lineStyle: lineStyle,
-            data: dataSH,
-            symbol: "none",
-            itemStyle: {
-              color: "#20b2aa",
-            },
-            areaStyle: {
-              opacity: 0.05,
-            },
-          },
-          {
-            name: "软件应用",
-            type: "radar",
-            lineStyle: lineStyle,
-            data: dataGZ,
-            symbol: "none",
-            itemStyle: {
-              color: "#ff8c00",
-            },
-            areaStyle: {
-              opacity: 0.05,
-            },
-          },
-          {
-            name: "社会实践",
-            type: "radar",
-            lineStyle: lineStyle,
-            data: dataSY,
-            symbol: "none",
-            itemStyle: {
-              color: "#0000ff",
-            },
-            areaStyle: {
-              opacity: 0.05,
-            },
-          },
         ],
       };
-      option && myChart.setOption(option);
+      option && this.radarEchart.setOption(option);
+    },
+    skillSel(num) {
+      if (this.skillNum != num) {
+        this.skillNum = num;
+        this.radarEchart.setOption(this.radarData[num].option, true);
+      }
+      // if (this.skillNum === num) {
+      //   this.skillNum = null;
+      //   this.radarEchart.setOption(
+      //     {
+      //       legend: {
+      //         data: ["电子技术", "Web前端", "软件应用", "社会实践"],
+      //         selectedMode: "multiple",
+      //       },
+      //       radar: {
+      //         indicator: [
+      //           { name: "第一项", max: 100 },
+      //           { name: "第二项", max: 100 },
+      //           { name: "第三项", max: 100 },
+      //           { name: "第四项", max: 100 },
+      //           { name: "第五项", max: 100 },
+      //           { name: "第六项", max: 100 },
+      //         ],
+      //       },
+      //       series: [
+      //         this.radarData[0].option.series,
+      //         this.radarData[1].option.series,
+      //         this.radarData[2].option.series,
+      //         this.radarData[3].option.series,
+      //       ],
+      //     },
+      //     true
+      //   );
+      // } else
     },
   },
   mounted() {
