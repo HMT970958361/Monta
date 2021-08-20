@@ -95,14 +95,14 @@
             :class="['skillcard', index == skillNum ? 'skillselected' : '']"
             @click="skillSel(index)"
           >
-            <img
-              :src="'../../public/images/' + item.photo"
-              alt="item.name"
-              width="80"
-              height="80"
-            />
+            <span :class="['iconfont', item.icon]"></span>
             <h4 class="skillname">{{ item.name }}</h4>
-            <span class="iconfont icon-play"></span>
+            <span
+              class="iconfont icon-play"
+              :style="
+                index == skillNum ? 'color:' + item.color : 'color:#969ba0'
+              "
+            ></span>
           </li>
         </ul>
         <div class="screen4-main-radar">
@@ -158,59 +158,51 @@
   <div class="screen6">
     <h1>推荐文章</h1>
     <div class="screen6-row1">
-      <div class="chart-circular" id="echartsRing"></div>
-      <div class="screen6-card1">
-        <div class="screen6-card1-header">
-          <span class="iconfont icon-danmu"></span>
-          <h4>General Message</h4>
-        </div>
-        <div class="screen6-card1-info">
-          <p><span>2318</span> <span>Group </span></p>
-          <p>Full exon sequence</p>
-          <meter value="7" min="0" max="10" low="6" high="8"></meter>
-        </div>
+      <div class="echartgroup1">
+        <div class="chart-circular" id="echartsRing"></div>
+        <div class="chart-line" id="echartsLine"></div>
       </div>
-      <div class="screen6-card1">
-        <div class="screen6-card1-header">
-          <span class="iconfont icon-shoucang"></span>
-          <h4>Virus Sequence</h4>
+      <div
+        v-for="note in notesRow1"
+        :key="note.title.name"
+        class="screen6-row1-card"
+      >
+        <div :class="['screen6-row1-card-header']" :style="note.style">
+          <span
+            :class="['iconfont', note.icon.font]"
+            :style="note.icon.style"
+          ></span>
+          <h4 :style="note.title.style">{{ note.title.name }}</h4>
         </div>
-        <div class="screen6-card1-info">
-          <p><span>42,324</span> <span>CFU</span></p>
-          <p>Full exon sequence</p>
-          <meter value="4" min="0" max="10" low="6" high="8"></meter>
+        <div class="screen6-row1-card-info">
+          <p>
+            <span>{{ note.num }}</span
+            ><span>{{ note.unit }}</span>
+          </p>
+          <p>{{ note.intro }}</p>
+          <div class="progress">
+            <div
+              class="nowprogress"
+              :style="note.meter.style"
+              :data-nowvalue="note.meter.value"
+            ></div>
+          </div>
+          <!-- <meter :value="note.meter" min="0" max="10" low="6" high="8"></meter> -->
         </div>
       </div>
     </div>
     <div class="screen6-row2">
-      <div class="screen6-card2">
-        <div class="screen6-card2-header">
-          <span class="iconfont icon-approve"></span>
-          <h4>Cloud TEC.</h4>
+      <div
+        v-for="note in notesRow2"
+        :key="note.title"
+        class="screen6-row2-card"
+      >
+        <div class="screen6-row2-card-header">
+          <span :class="['iconfont', note.icon]"></span>
+          <h4>{{ note.title }}</h4>
         </div>
-        <div class="screen6-card2-content">
-          Can could etc Can Can is an auxiliary verb, a modal auxiliary verb. We
-          use can to:∙talk about possibility and ability ∙make requests
-        </div>
-      </div>
-      <div class="screen6-card2">
-        <div class="screen6-card2-header">
-          <span class="iconfont icon-approve"></span>
-          <h4>Cloud TEC.</h4>
-        </div>
-        <div class="screen6-card2-content">
-          Can could etc Can Can is an auxiliary verb, a modal auxiliary verb. We
-          use can to:∙talk about possibility and ability ∙make requests
-        </div>
-      </div>
-      <div class="screen6-card2">
-        <div class="screen6-card2-header">
-          <span class="iconfont icon-approve"></span>
-          <h4>Cloud TEC.</h4>
-        </div>
-        <div class="screen6-card2-content">
-          Can could etc Can Can is an auxiliary verb, a modal auxiliary verb. We
-          use can to:∙talk about possibility and ability ∙make requests
+        <div class="screen6-row2-card-content">
+          {{ note.content }}
         </div>
       </div>
     </div>
@@ -239,12 +231,17 @@
   <div class="screen8">
     <div class="screen8-main">
       <div class="screen8-left">
-        <img src="../../public/images/H.png" alt="LOGO" />
+        <!-- <img src="../../public/images/H.png" alt="LOGO" /> -->
+        <div class="bottom-logo">
+          <a href="/">H</a>
+        </div>
         <h3>HUANG</h3>
       </div>
       <div class="screen8-center">
         <ul class="navlist">
-          <li v-for="nav in footerNavs" :key="nav">{{ nav }}</li>
+          <li v-for="nav in footerNavs" :key="nav">
+            <a href="/">{{ nav }}</a>
+          </li>
         </ul>
       </div>
       <div class="screen8-right">
@@ -300,12 +297,68 @@ export default defineComponent({
       "icon-liuyan",
     ]);
     let Skills = reactive([
-      { name: "电子技术", photo: "cpu.png" },
-      { name: "Web前端", photo: "cpu.png" },
-      { name: "软件应用", photo: "cpu.png" },
-      { name: "社会实践", photo: "cpu.png" },
+      { name: "电子技术", icon: "icon-dianlu", color: "#F1513C" },
+      { name: "Web前端", icon: "icon-H5", color: "#F9713C" },
+      { name: "软件应用", icon: "icon-vs", color: "#ff8c00" },
+      { name: "社会实践", icon: "icon-shehui", color: "#0000ff" },
     ]);
-    return { topNav, footerNavs, followIcons, Skills };
+    let notesRow1 = reactive([
+      {
+        title: {
+          name: "General Message",
+          style: "background:#85a4cd;color:#fff;",
+        },
+        icon: { font: "icon-danmu", style: "background:#5b8fd5;color:#fff;" },
+        num: "2318",
+        unit: "Group",
+        intro: "Full exon sequence",
+        meter: {
+          value: 0.8,
+          style:
+            "background-image: radial-gradient(#c7e4ff 30%, #ccd4dc);width:0px;",
+        },
+      },
+      {
+        title: {
+          name: "Virus Sequence",
+          style: "background:#a398d7;color:#fff;",
+        },
+        icon: {
+          font: "icon-shoucang",
+          style: "background:#805bd5;color:#fff;font-size: 2rem;",
+        },
+        num: "42,324",
+        unit: "CFU",
+        intro: "Full exon sequence",
+        meter: {
+          value: 0.5,
+          style:
+            "background-image: radial-gradient(#eed6fd 30%, #ccd4dc);width:0px",
+        },
+        style: "background:#a398d7;",
+      },
+    ]);
+    let notesRow2 = reactive([
+      {
+        title: "Web前端",
+        icon: "icon-yun",
+        content:
+          "css实现圆形渐变色边框。父元素设置渐变background-image，使用一个padding，把这个padding值当做子元素的边框值看待。",
+      },
+      {
+        title: "微信小程序",
+        icon: "icon-miniapp",
+        content:
+          "etState 修改 data 中想修改对象的属性。在小程序中，data 是不能直接操作的，需要使用 setData 函数。可以使用vuex全局管理数据。",
+      },
+      {
+        title: "游戏攻略",
+        icon: "icon-game",
+        content:
+          "印章来相助 浮舟更易攻。印章种类及数量在左侧显示，分为赤色/黄色/青色/特殊/材料五种类型，印章中赤色偏向攻击，黄色偏向防御，青色偏向辅助，这三种类型同功能的印章装备不受限制，特殊类同功能的印章则只能装备1个，材料印章只能用于印章升级。",
+      },
+    ]);
+    return { topNav, footerNavs, followIcons, Skills, notesRow1, notesRow2 };
   },
   data() {
     return {
@@ -454,50 +507,114 @@ export default defineComponent({
   methods: {
     echartsRing() {
       var myChart = echarts.init(document.getElementById("echartsRing"));
-
       // 指定图表的配置项和数据
       var option = {
         legend: {
           top: "bottom",
         },
-        toolbox: {
-          show: true,
-          feature: {
-            mark: { show: true },
-            dataView: { show: true, readOnly: false },
-            restore: { show: true },
-            saveAsImage: { show: true },
-          },
-        },
-        legend: {
-          show: false,
-        },
+        // toolbox: {
+        //   show: false,
+        //   feature: {
+        //     //mark: { show: true },
+        //     //dataView: { show: true, readOnly: false },
+        //     //restore: { show: true },
+        //     //saveAsImage: { show: true },
+        //   },
+        // },
+        // legend: {
+        //   show: false,
+        // },
         series: [
           {
             name: "面积模式",
             type: "pie",
-            radius: [80, 100],
+            radius: [100, 120],
             center: ["50%", "50%"],
             roseType: "radius",
             itemStyle: {
               borderRadius: 1,
               shadowColor: "#aeb8ce",
               shadowOffsetX: 5,
-              shadowOffsetY: 10,
-              shadowBlur: 10,
+              shadowOffsetY: 8,
+              shadowBlur: 4,
+            },
+            label: {
+              show: false,
             },
             color: ["#b7c4cf", "#9489d0", "#7e9fca", "#b9c5cf", "#fff"],
-            data: [
-              { value: 25, name: "1" },
-              { value: 20, name: "2" },
-              { value: 10, name: "3" },
-              { value: 8, name: "4" },
-              { value: 4, name: "5" },
-            ],
+            data: [25, 20, 10, 8, 4],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: "rgba(0, 0, 0, 0.5)",
+              },
+            },
           },
         ],
       };
       // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    },
+    echartsLine() {
+      var myChart = echarts.init(document.getElementById("echartsLine"));
+      var option = {
+        grid: {
+          left: "0%",
+          right: "0%",
+          top: "0%",
+          bottom: "0%",
+          //containLabel: true
+        },
+        xAxis: [
+          {
+            show: false,
+            type: "category",
+            boundaryGap: false,
+            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+          },
+        ],
+        yAxis: [
+          {
+            show: false,
+            type: "value",
+            max: 800,
+          },
+        ],
+        series: [
+          {
+            name: "邮件营销",
+            type: "line",
+            stack: "总量",
+            smooth: true,
+            showSymbol: false,
+            color: "#bc76c2",
+            areaStyle: {
+              color: "#cacfdd",
+            },
+            emphasis: {
+              focus: "series",
+            },
+
+            data: [120, 132, 101, 134, 90, 230, 210],
+          },
+          {
+            name: "联盟广告",
+            type: "line",
+            stack: "总量",
+            smooth: true,
+            showSymbol: false,
+            color: "#aabcd1",
+            areaStyle: {
+              color: "#d4deea",
+            },
+            emphasis: {
+              focus: "series",
+            },
+            data: [220, 182, 191, 234, 290, 330, 310],
+          },
+        ],
+      };
       myChart.setOption(option);
     },
     echartsRadar() {
@@ -513,6 +630,7 @@ export default defineComponent({
         //   },
         // },
         legend: {
+          show: false,
           bottom: 5,
           data: ["Web前端"],
           itemGap: 20,
@@ -520,7 +638,7 @@ export default defineComponent({
             color: "#000",
             fontSize: 14,
           },
-          selectedMode: "multiple",
+          selectedMode: "single",
         },
         radar: {
           indicator: [
@@ -581,41 +699,24 @@ export default defineComponent({
     skillSel(num) {
       if (this.skillNum != num) {
         this.skillNum = num;
-        this.radarEchart.setOption(this.radarData[num].option, true);
+        this.radarEchart.setOption(this.radarData[num].option);
       }
-      // if (this.skillNum === num) {
-      //   this.skillNum = null;
-      //   this.radarEchart.setOption(
-      //     {
-      //       legend: {
-      //         data: ["电子技术", "Web前端", "软件应用", "社会实践"],
-      //         selectedMode: "multiple",
-      //       },
-      //       radar: {
-      //         indicator: [
-      //           { name: "第一项", max: 100 },
-      //           { name: "第二项", max: 100 },
-      //           { name: "第三项", max: 100 },
-      //           { name: "第四项", max: 100 },
-      //           { name: "第五项", max: 100 },
-      //           { name: "第六项", max: 100 },
-      //         ],
-      //       },
-      //       series: [
-      //         this.radarData[0].option.series,
-      //         this.radarData[1].option.series,
-      //         this.radarData[2].option.series,
-      //         this.radarData[3].option.series,
-      //       ],
-      //     },
-      //     true
-      //   );
-      // } else
+    },
+    progressInit() {
+      //初始化进度条，必须匹配响应进度条组件
+      let pros = document.getElementsByClassName("progress");
+      for (let pro of pros) {
+        let width =
+          pro.offsetWidth * parseFloat(pro.children[0].dataset.nowvalue);
+        pro.children[0].style.width = width + "px";
+      }
     },
   },
   mounted() {
-    this.echartsRing();
     this.echartsRadar();
+    this.echartsRing();
+    this.echartsLine();
+    this.progressInit();
   },
   watch: {},
 });
@@ -665,7 +766,6 @@ ul {
 body {
   background-color: @colorBk;
 }
-
 /* 顶部导航 */
 .top-header {
   position: absolute;
@@ -694,6 +794,7 @@ body {
       font-weight: 600;
       color: #999999;
       font-family: "Threadz";
+      mask-image: linear-gradient(180deg, black 20%, #fff0);
       -webkit-mask-image: linear-gradient(180deg, black 20%, #fff0);
       //text-shadow: 1px 3px 6px #f2f3e8, 0 0 0 #000000, 1px 3px 6px #f3f2e8;
       transition: all 0.5s;
@@ -714,7 +815,6 @@ body {
     flex-flow: row nowrap;
     justify-content: space-evenly;
     align-items: center;
-
     li {
       padding: 0 10px;
       line-height: 60px;
@@ -725,7 +825,6 @@ body {
     }
   }
 }
-
 /* 首页第1屏——介绍页 */
 .screen1 {
   height: 100vh;
@@ -838,7 +937,6 @@ body {
   //border: 4px solid #e8edf3;
   //box-shadow: 4px 8px 12px #d9dfe4, -2px -2px 4px #fff;
   //filter: drop-shadow(2px 4px 6px #cbd3d8);
-
   &:hover {
     background-image: url("../../public/images/btn2.png");
     span {
@@ -891,7 +989,7 @@ body {
 }
 /* 首页第3屏——播放列表页 */
 .screen3 {
-  height: 1280px;
+  height: 900px;
   width: 100%;
   background-color: #e8edf3;
   display: flex;
@@ -934,9 +1032,9 @@ body {
   box-shadow: 2px 2px 8px 0px #72797d, -2px -2px 8px 0px #fff;
   .icon-yuanzi {
     font-size: 6rem;
-    color: #e7eff1;
-    filter: drop-shadow(2px 2px 4px #98a7b5);
-    text-shadow: 2px 2px 3px #3f4244, -2px -2px 6px #fff;
+    color: #e7eff13b;
+    //filter: drop-shadow(2px 2px 4px #98a7b5);
+    text-shadow: -2px -2px 2px #ffffff, 0px 0px 0px #343c48, 2px 2px 4px #d0d6df;
   }
   .vedioc1-title {
     font-size: 2.4rem;
@@ -980,7 +1078,7 @@ body {
   font-family: "jzjdxcs";
   color: #626e71;
 }
-/* 首页第4屏——技能掌握 */
+/* 首页第4屏——技术栈 */
 .screen4 {
   background-color: @colorBk;
   height: 750px;
@@ -989,7 +1087,7 @@ body {
 }
 .screen4-box {
   width: 600px;
-  height: 320px;
+  height: 180px;
   margin-left: 6rem;
   border-radius: 10px;
   background-image: linear-gradient(to right, #e8edf3, @colorBk);
@@ -1019,6 +1117,8 @@ body {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+
   .skillcard {
     box-sizing: border-box;
     padding: 1rem;
@@ -1031,38 +1131,38 @@ body {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    img {
-      box-sizing: border-box;
-      padding: 10px;
-      border-radius: 10px;
-      background-color: #dfe7ee;
-      box-shadow: -2px -2px 4px #ffffff, 2px 2px 4px #bbc1c7;
-    }
+    transition: all 0.6s;
     .skillname {
       font-size: 1.6rem;
       font-weight: normal;
-      color: #bcc5cd;
+      color: #99a7b3;
+      //text-shadow: 1px 3px 5px #dfe6ee, 0px 0px 0px #1b2635, 1px 3px 2px #d0d6df;
+      transition: all 0.6s;
     }
     span {
-      color: #dfe7ee;
-      font-size: 2.4rem;
-      filter: drop-shadow(2px 2px 1px #6e7072);
+      color: #969ba0;
+      font-size: 3rem;
+      transition: all 0.6s;
     }
   }
   .skillselected {
     background-color: #aab7c7;
-    img {
-      background-color: #aab7c7;
-      box-shadow: inset -2px -2px 8px rgb(224, 230, 233),
-        inset 2px 2px 16px #666b71;
-    }
+    box-shadow: 4px 4px 14px 4px #c7ced8;
+    transform: translate(0, -5px);
     .skillname {
-      color: #e2e9ee;
-      text-shadow: 2px 2px 2px #6f7780;
+      color: #ffffff;
+      //text-shadow: 2px 2px 2px #68757d, -2px -2px 2px #cadcea;
     }
-    span {
-      color: #b2c0d2;
-      filter: drop-shadow(-4px 4px 2px #6e7072);
+    span:first-child {
+      color: #ffffff70;
+      //text-shadow: 0px 0px 0px #dfe6ee, 0px 0px 0px #1b2635, 0px 0px 0px #d0d6df;
+      text-shadow: -1px -2px 2px #dfe6ee, 0px 0px 0px #1b2635,
+        2px 2px 4px #d0d6df;
+    }
+    span:last-child {
+      color: #f1f7fb;
+      text-shadow: none;
+      filter: drop-shadow(-2px 2px 4px #919699);
       transform: rotateY(180deg);
     }
   }
@@ -1088,6 +1188,11 @@ body {
     // background-size: 100%;
   }
 }
+@media screen and (max-width:1200px) {
+  .screen4-main{
+    flex-flow: column;
+  }
+}
 /* 首页第5屏——游戏领域 */
 .screen5 {
   box-sizing: border-box;
@@ -1111,8 +1216,8 @@ body {
   height: 70px;
   background-color: #e8edf3;
   border-radius: 8px;
-  box-shadow: inset 2px -2px 4px #d89836, -2px 2px 4px #c18d3e,
-    inset -2px 2px 4px #fff0d9, 2px -2px 4px #fffefd;
+  box-shadow: inset 2px -2px 4px #d8e1e6, -2px 2px 4px #d8e1e6,
+    inset -2px 2px 4px #fafcff, 2px -2px 4px #fffefd;
 }
 .screen5-card-content {
   z-index: 9;
@@ -1120,9 +1225,9 @@ body {
   width: 270px;
   height: 480px;
   background-color: #dbe0e7;
-  background-image: linear-gradient(to bottom, #e8edf3 20%, #ffc6aa);
+  background-image: linear-gradient(to bottom, #f3f7fb 20%, #e8edf3);
   border-radius: 10px;
-  box-shadow: 2px 4px 8px #b98b74, -2px -4px 8px #ffffff;
+  box-shadow: 2px 4px 8px #babfc5, -2px -4px 8px #ffffff;
 }
 .screen5-card-bottom {
   z-index: 8;
@@ -1130,10 +1235,10 @@ body {
   width: 270px;
   height: 250px;
   margin-top: 250px;
-  background-color: #eebca5;
   border-radius: 10px;
   box-shadow: 2px 4px 8px #b98b74;
-  background-image: linear-gradient(to bottom, #e8edf3 20%, #dfb49f);
+  background-image: linear-gradient(to bottom, #e8edf3 50%, #cfd7de);
+  mask-image: linear-gradient(359deg, black 40%, transparent);
   -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
 }
 .screen5-card1 {
@@ -1146,18 +1251,19 @@ body {
     padding-left: 1rem;
     span {
       font-size: 3rem;
+      text-shadow: 0px 0px 9px #dfe6ee, 0px 0px 0px #000000, 2px 2px 4px #d0d6df;
+      color: #fff0;
     }
     h1 {
       margin-left: 1rem;
       color: #46464626;
-      text-shadow: 1px 3px 6px #e8edf3, 0 0 0 #d89d5a, 1px 3px 6px #e8edf3;
+      text-shadow: 2px 3px 4px #e8edf3, 0 0 0 #5d676b, 2px 2px 4px #ffffff;
     }
   }
   .screen5-card-content {
     box-sizing: border-box;
     padding-top: 70px;
     padding: 70px 1rem;
-    //overflow: auto;
     p {
       margin-top: 1rem;
       text-indent: 2rem;
@@ -1175,10 +1281,9 @@ body {
     position: absolute;
     z-index: 9;
     width: 270px;
-    height: 250px;
-    margin-top: 120px;
-    background-image: url(/public/images/lihui/ningguang.png);
-    background-size: 140%;
+    height: 350px;
+    background-image: url(/public/images/jl.png);
+    background-size: 100%;
     background-position: bottom;
     background-repeat: no-repeat;
     background-position: top;
@@ -1195,7 +1300,6 @@ body {
     border-radius: 50px;
     box-shadow: inset 2px -2px 4px #bbb797, -1px 1px 2px #c5ba61,
       inset -2px 2px 4px #e6dea6, 1px -1px 2px #d4cea5;
-
     h1 {
       text-align: center;
       color: #47321921;
@@ -1203,11 +1307,11 @@ body {
       text-shadow: 1px 3px 6px #f2f3e8, 0 0 0 #77703b, 1px 3px 6px #f3f2e8;
     }
   }
-
   .screen5-card-content {
     z-index: 10;
     box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
     background-image: linear-gradient(to bottom, #e8edf3 50%, #f6e393);
+    mask-image: url("../../public/images/tx.png");
     -webkit-mask-image: url("../../public/images/tx.png");
     p {
       position: absolute;
@@ -1216,11 +1320,12 @@ body {
       text-align: justify;
       color: #727272;
       font-size: 14px;
-      padding: 1rem;
+      padding: 2rem 1rem;
     }
   }
   .screen5-card-bottom {
     background-image: linear-gradient(to bottom, #e8edf3 20%, #e6d381);
+    mask-image: linear-gradient(359deg, black 40%, transparent);
     -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
   }
 }
@@ -1231,10 +1336,10 @@ body {
     position: absolute;
     z-index: 9;
     width: 270px;
-    height: 250px;
-    margin-top: 120px;
+    height: 350px;
+    margin-top: 36px;
     background-image: url(/public/images/lihui/xiao.png);
-    background-size: 140%;
+    background-size: 120%;
     background-position: bottom;
     background-repeat: no-repeat;
     background-position: top;
@@ -1261,6 +1366,7 @@ body {
   .screen5-card-content {
     box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
     background-image: linear-gradient(to bottom, #e8edf3 50%, #95f0ea);
+    mask-image: url("../../public/images/tx.png");
     -webkit-mask-image: url("../../public/images/tx.png");
     p {
       position: absolute;
@@ -1269,11 +1375,12 @@ body {
       text-align: justify;
       color: #727272;
       font-size: 14px;
-      padding: 1rem;
+      padding: 2rem 1rem;
     }
   }
   .screen5-card-bottom {
     background-image: linear-gradient(to bottom, #e8edf3 20%, #69e4dc);
+    mask-image: linear-gradient(359deg, black 40%, transparent);
     -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
   }
 }
@@ -1311,19 +1418,47 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
-.chart-circular {
+.echartgroup1 {
   height: 240px;
+  width: 280px;
+  overflow: hidden;
+}
+.chart-circular {
+  position: absolute;
+  height: 280px;
   width: 280px;
   //border: 1px solid #000;
 }
-.screen6-card1 {
+.chart-line {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  margin: 40px;
+  //border: 1px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.progress {
+  height: 8px;
+  width: 220px;
+  box-shadow: inset 2px 2px 2px 0px #c2d2de, 0px 1px 2px 1px #bac3ca;
+  display: flex;
+  align-items: center;
+  .nowprogress {
+    height: 8px;
+    background-image: radial-gradient(#eff7ff 30%, #ccd4dc);
+    box-shadow: -1px 1px 4px 1px #9ba2ab;
+    transition: all 2s;
+  }
+}
+.screen6-row1-card {
   height: 240px;
   width: 280px;
-  //border: 1px solid #000;
-  border-radius: 40px 0 10px 10px;
+  background: #e8edf3;
+  border-radius: 24px 0 0 0;
   overflow: hidden;
-  box-shadow: 4px 4px 8px 2px #95a5a9, -2px -2px 13px 4px #fff;
-  .screen6-card1-header {
+  box-shadow: 4px 4px 10px 4px #d7dde4, -4px -4px 10px 4px #fff;
+  .screen6-row1-card-header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -1339,9 +1474,9 @@ body {
       height: 50px;
       text-align: center;
       line-height: 50px;
-      font-size: 2rem;
+      font-size: 1.4rem;
       background: #5b8fd5;
-      box-shadow: 6px 0px 12px rgb(95, 95, 95);
+      box-shadow: 2px 0px 10px 0px #5f5f5f;
     }
     h4 {
       line-height: 50px;
@@ -1351,11 +1486,14 @@ body {
       background: #85a4cd;
     }
   }
-  .screen6-card1-info {
+  .screen6-row1-card-info {
     padding: 2rem;
+    color: #4c5568;
     p:first-child {
+      font-weight: bolder;
       span:first-child {
         font-size: 2.4rem;
+        margin-right: 0.5rem;
       }
       span:last-child {
         font-size: 1.5rem;
@@ -1363,21 +1501,18 @@ body {
     }
     p:nth-child(2) {
       color: #848484;
-      padding: 0.2rem 0 1rem 0;
-    }
-    meter:nth-child(3) {
-      width: 200px;
+      padding: 0.2rem 0 1.8rem 0;
     }
   }
 }
-.screen6-card2 {
+.screen6-row2-card {
   height: 240px;
   width: 280px;
   //border: 1px solid #000;
-  border-radius: 10px;
-  box-shadow: 4px 4px 8px 2px #95a5a9, -2px -2px 13px 4px #fff;
-  .screen6-card2-header {
-    height: 50px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 10px 4px #d7dde4, -4px -4px 10px 4px #fff;
+  .screen6-row2-card-header {
+    height: 70px;
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-start;
@@ -1385,29 +1520,38 @@ body {
     border-radius: 4px;
     box-shadow: 4px 4px 6px 0px #cecece, -2px -2px 4px 0px #fff;
     span {
-      font-size: 30px;
-      padding: 10px;
-      color: #fff;
-      background-color: #626e71;
-      border-radius: 50%;
       position: relative;
-      margin: -20px 0 0 -20px;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 50px;
+      background-color: #e8edf3;
+      margin: -25px 0 0 -25px;
+      color: #ffffff29;
+      text-shadow: 1px 3px 2px #dfe6ee, 0px 0px 0px #ffffff, 4px 2px 4px #95979a;
+      box-shadow: 4px 4px 8px 2px #c2c3c3, -2px -2px 8px 4px #fff;
     }
     h4 {
       color: #4141415e;
       margin-left: 2rem;
       font-size: 1.8rem;
-      line-height: 50px;
+      line-height: 70px;
       text-shadow: 1px 3px 6px #e8edf3, 0 0 0 #414141, 1px 3px 6px #e8edf3;
     }
   }
-  .screen6-card2-content {
-    padding: 1.5rem;
+  .screen6-row2-card-content {
+    margin: 40px 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
     font-size: 0.8rem;
     color: #9da1a7;
+    height: 6rem;
+    width: 240px;
+    text-align: justify;
+    line-height: 1.2rem;
   }
 }
-
 /* 首页第7屏——下载 */
 .screen7 {
   height: 500px;
@@ -1415,9 +1559,12 @@ body {
   padding: 50px 0;
   margin: 0 auto;
   h1 {
+    color: #505050;
+    margin-left:5rem;
   }
   p {
     line-height: 3rem;
+    margin-left:5rem;
   }
 }
 .screen7-row {
@@ -1426,12 +1573,12 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
-
 .screen7-ring {
   height: 200px;
   width: 200px;
   border-radius: 50%;
   background-image: linear-gradient(90deg, #ffb18d 30%, #dc528f, #4953ce);
+  mask-image: linear-gradient(180deg, black, transparent);
   -webkit-mask-image: linear-gradient(180deg, black, transparent);
 }
 .screen7-ring-inset {
@@ -1471,20 +1618,23 @@ body {
     font-weight: normal;
     font-size: 2rem;
     color: #626e71;
-    font-family: "jzjdxcs";
+    font-family: monospace;
     span {
       margin-right: 1.2rem;
       font-size: 4rem;
-      font-weight: 800;
-      color: transparent;
-      text-shadow: -4px -3px 5px #ffffff;
-      background-image: -webkit-linear-gradient(
-        bottom,
-        #ffffff,
-        #828282,
-        #ffffff
+      font-weight: 400;
+      color: #ececec00;
+      background-image: linear-gradient(
+        180deg,
+        #efefefe0 30%,
+        #eaeaea4f 50%,
+        #fffffff2 81%
       );
+      //background-image: linear-gradient(180deg, #f5c1abb8 30%, #ef8e928c 50%, #de619487 70%,#8e8bd7);
+      background-clip: text;
       -webkit-background-clip: text;
+      filter: drop-shadow(2px 2px 2px gray);
+      font-family: sans-serif;
     }
   }
 }
@@ -1514,13 +1664,26 @@ body {
   flex-flow: row nowrap;
   align-items: center;
   color: #fff;
-  img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    padding: 4px;
-    background-repeat: no-repeat;
+  .bottom-logo {
+    width: 58px;
+    height: 58px;
+    a {
+      display: block;
+      box-sizing: border-box;
+      padding: 4px;
+      width: 58px;
+      height: 58px;
+      font-family: "Threadz";
+      font-size: 36px;
+      text-indent: 6px;
+      line-height: 42px;
+      color: #fff;
+      border-radius: 50%;
+      border: 4px solid;
+      &:hover{
+        color: #ffcc24;
+      }
+    }
   }
   h3 {
     font-size: 2rem;
@@ -1540,33 +1703,54 @@ body {
     height: 40px;
     line-height: 40px;
     color: #cbd3d8;
+    &:hover{
+      color:#ffcc24;
+    }
+  a{
+    color: #fff;
+    &:hover{
+      color: #ffcc24;
+    }
+  }
   }
 }
 .screen8-right {
-  height: 200px;
   h3 {
     font-size: 2.4rem;
     color: #cbd3d8;
+    margin-bottom: 2rem;
   }
 }
 .followul {
   width: 400px;
-  height: 100px;
+  height: 64px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  li {
+  li{
+    height: 64px;
+    line-height: 64px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    transition: all .5s;
+    &:hover{
+      transform: scale(0.9);
+      border: 2px solid #ffffff00;
+      .iconfont {
+        box-shadow:none;
+      }
+    }
   }
   .iconfont {
-    font-size: 2rem;
+    font-size: 24px;
     padding: 20px;
     border-radius: 10px;
     background-color: #a1abb6;
     color: #dae0e8;
-    box-shadow: -2px -2px 4px #c8cbcf, 2px 2px 8px #878c91;
+    box-shadow: -2px -2px 4px #c8cbcf, 2px 2px 8px #46494c;
     text-shadow: 2px 2px 4px rgb(91, 104, 114);
   }
 }
