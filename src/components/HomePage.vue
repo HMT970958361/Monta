@@ -111,50 +111,6 @@
       </div>
     </div>
   </div>
-  <div class="screen5">
-    <div class="screen5-card1">
-      <div class="screen5-card-title">
-        <span class="iconfont icon-mi"></span>
-        <h1>风色幻想</h1>
-      </div>
-      <div class="screen5-card-content">
-        <p>
-          游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。玩家将扮演一位名为“旅行者”的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘“原神”的真相。
-        </p>
-        <p>
-          剑灵凭借完美的视觉表现力,电影版的剧情体验,深厚的东方文化底蕴,自由灵活的战斗体验,成为突破传统、引领潮流的最受期待网游。
-        </p>
-        <p>
-          天地处于“混沌”状态，有“盘古”生于其间。盘古身体不断成长，原来的混沌状态不能容纳其身体而分裂，“清气”上升为天，“浊气”沉降为地。盘古死后，其精、气、神分化成三位大神，分别为伏羲、神农、女娲。
-        </p>
-      </div>
-      <div class="screen5-card-bottom"></div>
-    </div>
-    <div class="screen5-card2">
-      <div class="person"></div>
-      <div class="screen5-card-title">
-        <h1>剑&nbsp;灵</h1>
-      </div>
-      <div class="screen5-card-content">
-        <p>
-          剑灵凭借完美的视觉表现力,电影版的剧情体验,深厚的东方文化底蕴,自由灵活的战斗体验,成为突破传统、引领潮流的最受期待网游。
-        </p>
-      </div>
-      <div class="screen5-card-bottom"></div>
-    </div>
-    <div class="screen5-card3">
-      <div class="person"></div>
-      <div class="screen5-card-title">
-        <h1>原&nbsp;神</h1>
-      </div>
-      <div class="screen5-card-content">
-        <p>
-          游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。
-        </p>
-      </div>
-      <div class="screen5-card-bottom"></div>
-    </div>
-  </div>
   <div class="screen6">
     <h1>推荐文章</h1>
     <div class="screen6-row1">
@@ -207,6 +163,51 @@
       </div>
     </div>
   </div>
+  <div class="screen5">
+    <div class="screen5-card1">
+      <div class="screen5-card-title">
+        <span class="iconfont icon-mi"></span>
+        <h1>游戏领域</h1>
+      </div>
+      <div class="screen5-card-content">
+        <p>
+          游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。玩家将扮演一位名为“旅行者”的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘“原神”的真相。
+        </p>
+        <p>
+          剑灵凭借完美的视觉表现力,电影版的剧情体验,深厚的东方文化底蕴,自由灵活的战斗体验,成为突破传统、引领潮流的最受期待网游。
+        </p>
+        <p>
+          天地处于“混沌”状态，有“盘古”生于其间。盘古身体不断成长，原来的混沌状态不能容纳其身体而分裂，“清气”上升为天，“浊气”沉降为地。盘古死后，其精、气、神分化成三位大神，分别为伏羲、神农、女娲。
+        </p>
+      </div>
+      <div class="screen5-card-bottom"></div>
+    </div>
+    <div class="screen5-card2">
+      <div class="person"></div>
+      <div class="screen5-card-title">
+        <h4>剑&nbsp;灵</h4>
+      </div>
+      <div class="screen5-card-content">
+        <p>
+          剑灵凭借完美的视觉表现力,电影版的剧情体验,深厚的东方文化底蕴,自由灵活的战斗体验,成为突破传统、引领潮流的最受期待网游。
+        </p>
+      </div>
+      <div class="screen5-card-bottom"></div>
+    </div>
+    <div class="screen5-card3">
+      <div class="person"></div>
+      <div class="screen5-card-title">
+        <h4>原&nbsp;神</h4>
+      </div>
+      <div class="screen5-card-content">
+        <p>
+          游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。
+        </p>
+      </div>
+      <div class="screen5-card-bottom"></div>
+    </div>
+  </div>
+
   <div class="screen7">
     <h1>下载</h1>
     <p>点击下载相关信息</p>
@@ -245,7 +246,7 @@
         </ul>
       </div>
       <div class="screen8-right">
-        <h3>联系我们</h3>
+        <h3>联系本站</h3>
         <ul class="followul">
           <li v-for="icon in followIcons" :key="icon">
             <span :class="['iconfont', icon]"></span>
@@ -738,6 +739,7 @@ export default defineComponent({
 @themeColor: #565656;
 @colorBk: #e8edf3;
 @colorFont: #565656;
+@colorH1:#4e4e4e;
 * {
   margin: 0;
   padding: 0;
@@ -770,8 +772,10 @@ body {
 .top-header {
   position: absolute;
   top: 0;
-  width: 100%;
   height: 80px;
+  width: 100%;
+  min-width: 1200px;
+  margin: 0 auto;
   padding: 10px 0;
   display: flex;
   flex-flow: row nowrap;
@@ -829,6 +833,7 @@ body {
 .screen1 {
   height: 100vh;
   width: 100%;
+  min-width: 1200px;
   background-image: url("../../public/images/bk1.png");
   background-color: @colorBk;
   background-position: center;
@@ -842,7 +847,7 @@ body {
   h1 {
     font-size: 4rem;
     padding: 1rem 0;
-    color: #464646;
+    color: @colorH1;
   }
   h2 {
     font-size: 3rem;
@@ -881,8 +886,8 @@ body {
 }
 /* 首页第2屏——技能大类页 */
 .screen2 {
-  //height: 750px;
   width: 100%;
+  min-width: 1200px;
   box-shadow: 0 -50px 60px #e8edf3;
   background-image: url("../../public/images/bk2.png");
   background-color: @colorBk;
@@ -901,7 +906,7 @@ body {
     h1 {
       margin-bottom: 1rem;
       width: 300px;
-      color: #717171;
+      color: @colorH1;
     }
     h3 {
       width: 300px;
@@ -989,7 +994,7 @@ body {
 }
 /* 首页第3屏——播放列表页 */
 .screen3 {
-  height: 900px;
+  height: 1200px;
   width: 100%;
   background-color: #e8edf3;
   display: flex;
@@ -1008,10 +1013,9 @@ body {
 .vediocards {
   position: absolute;
   width: 100%;
+    min-width: 1200px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: row nowrap;
   justify-content: space-evenly;
   align-items: flex-end;
 }
@@ -1082,13 +1086,14 @@ body {
 .screen4 {
   background-color: @colorBk;
   height: 750px;
-  width: 1200px;
+  width:100%;
+  min-width: 1200px;
   margin: 0 auto;
 }
 .screen4-box {
-  width: 600px;
-  height: 180px;
-  margin-left: 6rem;
+  width: 1200px;
+  height: 480px;
+  margin: 0 auto;
   border-radius: 10px;
   background-image: linear-gradient(to right, #e8edf3, @colorBk);
   box-shadow: -17px -10px 18px #fff;
@@ -1096,7 +1101,7 @@ body {
 .screen4-header {
   padding: 2rem;
   h1 {
-    color: #505050;
+    color: @colorH1;
   }
   p {
     line-height: 2rem;
@@ -1104,10 +1109,10 @@ body {
   }
 }
 .screen4-main {
-  width: 1000px;
+  width: 1200px;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-start;
 }
 .screen4-list {
@@ -1188,17 +1193,12 @@ body {
     // background-size: 100%;
   }
 }
-@media screen and (max-width:1200px) {
-  .screen4-main{
-    flex-flow: column;
-  }
-}
 /* 首页第5屏——游戏领域 */
 .screen5 {
   box-sizing: border-box;
-  height: 700px;
-  width: 1200px;
-  padding: 50px 0px;
+  height: 500px;
+  width: 100%;
+  min-width:1200px;
   margin: 0 auto;
   background-color: @colorBk;
   display: flex;
@@ -1256,7 +1256,7 @@ body {
     }
     h1 {
       margin-left: 1rem;
-      color: #46464626;
+      color: fade(@colorH1,40%);
       text-shadow: 2px 3px 4px #e8edf3, 0 0 0 #5d676b, 2px 2px 4px #ffffff;
     }
   }
@@ -1300,7 +1300,8 @@ body {
     border-radius: 50px;
     box-shadow: inset 2px -2px 4px #bbb797, -1px 1px 2px #c5ba61,
       inset -2px 2px 4px #e6dea6, 1px -1px 2px #d4cea5;
-    h1 {
+    h4 {
+      font-size: 32px;
       text-align: center;
       color: #47321921;
       line-height: 55px;
@@ -1352,7 +1353,8 @@ body {
     width: 170px;
     height: 55px;
     margin-top: 280px;
-    h1 {
+    h4 {
+      font-size: 32px;
       text-align: center;
       color: #324b5a44;
       line-height: 55px;
@@ -1387,19 +1389,21 @@ body {
 /* 首页第6屏——文章推荐 */
 .screen6 {
   box-sizing: border-box;
-  height: 900px;
-  width: 1200px;
-  margin: 0px auto;
-  padding: 50px 0;
+  height: 750px;
+  width: 100%;
+  min-width:1200px;
+  margin: 100px auto;
   background-color: @colorBk;
   h1 {
-    margin-left: 6rem;
+    color: @colorH1;
+    width: 1200px;
+    margin: 0 auto;
   }
 }
 .screen6-row1 {
   height: 240px;
   width: 1200px;
-  margin: 50px auto;
+  margin: 30px auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1411,7 +1415,7 @@ body {
   margin-top: 50px;
   height: 240px;
   width: 1200px;
-  margin: 100px auto;
+  margin: 90px auto;
   display: flex;
   flex-flow: row nowrap;
   align-content: flex-start;
@@ -1554,20 +1558,20 @@ body {
 }
 /* 首页第7屏——下载 */
 .screen7 {
-  height: 500px;
+  height: 400px;
   width: 1200px;
-  padding: 50px 0;
-  margin: 0 auto;
+  margin: 100px auto;
   h1 {
     color: #505050;
-    margin-left:5rem;
+    padding: 1rem 0;
   }
   p {
-    line-height: 3rem;
-    margin-left:5rem;
+    color: #a7a7a7;
+    //padding: 1rem 0;
   }
 }
 .screen7-row {
+  margin-top: 50px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
@@ -1623,17 +1627,8 @@ body {
       margin-right: 1.2rem;
       font-size: 4rem;
       font-weight: 400;
-      color: #ececec00;
-      background-image: linear-gradient(
-        180deg,
-        #efefefe0 30%,
-        #eaeaea4f 50%,
-        #fffffff2 81%
-      );
-      //background-image: linear-gradient(180deg, #f5c1abb8 30%, #ef8e928c 50%, #de619487 70%,#8e8bd7);
-      background-clip: text;
-      -webkit-background-clip: text;
-      filter: drop-shadow(2px 2px 2px gray);
+      color: #9aa4b5;
+      text-shadow:2px 2px 2px #646567, -2px -2px 2px #ffffff;
       font-family: sans-serif;
     }
   }
@@ -1641,6 +1636,7 @@ body {
 /* 首页第8屏——页脚 */
 .screen8 {
   height: 350px;
+  min-width: 1200px;
   background-color: #6c7a8a;
   //background-image: linear-gradient(135deg, #6c7a8a, #a6b3c1);
   display: flex;
@@ -1656,7 +1652,7 @@ body {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 4px solid #a2b3c5;
+  border-bottom: 2px solid rgb(230, 238, 247);
 }
 .screen8-left {
   width: 320px;
@@ -1702,12 +1698,11 @@ body {
     width: 100px;
     height: 40px;
     line-height: 40px;
-    color: #cbd3d8;
     &:hover{
       color:#ffcc24;
     }
   a{
-    color: #fff;
+    color: #ccd2da;
     &:hover{
       color: #ffcc24;
     }
@@ -1733,25 +1728,23 @@ body {
   li{
     height: 64px;
     line-height: 64px;
-    border: 2px solid #fff;
     border-radius: 12px;
-    transition: all .5s;
+    transition: all .3s;
     &:hover{
       transform: scale(0.9);
-      border: 2px solid #ffffff00;
       .iconfont {
-        box-shadow:none;
+        box-shadow:-1px -1px 2px #c8cbcf, 1px 1px 4px #46494c, inset 1px 1px 2px 0px #fff;
       }
     }
   }
   .iconfont {
-    font-size: 24px;
-    padding: 20px;
+    font-size: 28px;
+    padding: 16px;
     border-radius: 10px;
     background-color: #a1abb6;
     color: #dae0e8;
-    box-shadow: -2px -2px 4px #c8cbcf, 2px 2px 8px #46494c;
-    text-shadow: 2px 2px 4px rgb(91, 104, 114);
+    box-shadow:-2px -2px 4px #c8cbcf, 2px 2px 8px #46494c, inset 0px 0px 2px 1px #fff;
+    text-shadow:2px 2px 2px #646567, -2px -2px 2px #ffffff;
   }
 }
 .screen8-info {
