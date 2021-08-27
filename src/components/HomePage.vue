@@ -283,12 +283,12 @@ export default defineComponent({
         {
           img: "../../public/images/ROGZ590A.png",
           content:
-            "具有扎实的理论基础、丰富的电子知识，具有良好的电子电路分析能力。良好的手动操作能力，能熟练读图，会使用各种电子测量、生产工具，了解各类电子元器件的原理、型号、用途，了解单片机开发技术，熟练各种相关设计软件。",
+            "电子信息科学与技术专业培养适应社会与经济发展需要，具有道德文化素养、社会责任感、创新精神和创业意识，掌握必备的数学、自然科学基础知识和相应专业知识，具备良好的学习能力、实践能力、专业能力和一定的创新创业能力，身心健康，可从事电子信息及相关领域中系统、设备和器件的研究、设计、开发、制造、应用、维护、管理等工作的高素质专门人才。",
         },
         {
           img: "../../public/images/DNA.png",
           content:
-            "前端技术一般分为前端设计和前端开发，前端设计一般可以理解为网站的视觉设计，前端开发则是网站的前台代码实现，包括基本的HTML和CSS以及JavaScript/ajax，最新的高级版本HTML5、CSS3，以及SVG等。",
+            "前端即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验。",
         },
       ],
     });
@@ -307,10 +307,10 @@ export default defineComponent({
     let screen4Data = reactive({
       main: { title: "技术栈", subtitle: "软硬双修，文理兼备" },
       skills: [
-        { name: "电子技术", icon: "icon-dianlu", color: "#F1513C" },
-        { name: "Web前端", icon: "icon-H5", color: "#F9713C" },
-        { name: "软件应用", icon: "icon-vs", color: "#ff8c00" },
-        { name: "社会实践", icon: "icon-shehui", color: "#0000ff" },
+        { name: "电子技术", icon: "icon-dianlu", color: "rgb(60 241 99)" },
+        { name: "Web前端", icon: "icon-H5", color: "rgb(60 232 249)" },
+        { name: "软件应用", icon: "icon-vs", color: "rgb(255 225 0)" },
+        { name: "社会实践", icon: "icon-shehui", color: "rgb(232 63 227)" },
       ],
       selected: 1,
     });
@@ -342,10 +342,10 @@ export default defineComponent({
             data: [[89, 78, 86, 75, 81, 86]],
             symbol: "none",
             itemStyle: {
-              color: "#F1513C",
+              color: "rgb(60 241 99)",
             },
             areaStyle: {
-              opacity: 0.1,
+              opacity: 0.2,
             },
           },
         },
@@ -376,10 +376,10 @@ export default defineComponent({
             data: [[80, 80, 85, 80, 65, 60]],
             symbol: "none",
             itemStyle: {
-              color: "#F9713C",
+              color: "rgb(60 232 249)",
             },
             areaStyle: {
-              opacity: 0.1,
+              opacity: 0.2,
             },
           },
         },
@@ -393,11 +393,11 @@ export default defineComponent({
           radar: {
             indicator: [
               { name: "VSCode", max: 100 },
-              { name: "CSS", max: 100 },
-              { name: "HTML", max: 100 },
-              { name: "Vue", max: 100 },
-              { name: "Nodejs", max: 100 },
-              { name: "HTTP", max: 100 },
+              { name: "PS", max: 100 },
+              { name: "Office", max: 100 },
+              { name: "AutoCAD", max: 100 },
+              { name: "Unity3D", max: 100 },
+              { name: "Git", max: 100 },
             ],
           },
           series: {
@@ -407,13 +407,13 @@ export default defineComponent({
               width: 1,
               opacity: 0.5,
             },
-            data: [[85, 88, 75, 74.8, 72, 78]],
+            data: [[70, 60, 75, 68, 50, 65]],
             symbol: "none",
             itemStyle: {
-              color: "#ff8c00",
+              color: "rgb(230 205 22)",
             },
             areaStyle: {
-              opacity: 0.05,
+              opacity: 0.2,
             },
           },
         },
@@ -426,12 +426,12 @@ export default defineComponent({
           },
           radar: {
             indicator: [
-              { name: "VSCode", max: 100 },
-              { name: "CSS", max: 100 },
-              { name: "HTML", max: 100 },
-              { name: "Vue", max: 100 },
-              { name: "Nodejs", max: 100 },
-              { name: "HTTP", max: 100 },
+              { name: "学习能力", max: 100 },
+              { name: "动手能力", max: 100 },
+              { name: "沟通交流", max: 100 },
+              { name: "抗压能力", max: 100 },
+              { name: "理性", max: 100 },
+              { name: "感性", max: 100 },
             ],
           },
           series: {
@@ -441,13 +441,13 @@ export default defineComponent({
               width: 1,
               opacity: 0.5,
             },
-            data: [[65, 67, 60, 80, 20, 31]],
+            data: [[78, 80, 68, 76, 85, 75]],
             symbol: "none",
             itemStyle: {
-              color: "#0000ff",
+              color: "rgb(232 63 227)",
             },
             areaStyle: {
-              opacity: 0.05,
+              opacity: 0.2,
             },
           },
         },
@@ -550,7 +550,7 @@ export default defineComponent({
         row1: [
           {
             title: {
-              name: "General Message",
+              name: "综合信息",
               style: "background:#85a4cd;color:#fff;",
             },
             icon: {
@@ -558,8 +558,8 @@ export default defineComponent({
               style: "background:#5b8fd5;color:#fff;",
             },
             num: "2318",
-            unit: "Group",
-            intro: "Full exon sequence",
+            unit: "篇",
+            intro: "今日新增1318篇",
             meter: {
               value: 0.8,
               style:
@@ -568,7 +568,7 @@ export default defineComponent({
           },
           {
             title: {
-              name: "Virus Sequence",
+              name: "点赞数",
               style: "background:#a398d7;color:#fff;",
             },
             icon: {
@@ -576,8 +576,8 @@ export default defineComponent({
               style: "background:#805bd5;color:#fff;font-size: 2rem;",
             },
             num: "42,324",
-            unit: "CFU",
-            intro: "Full exon sequence",
+            unit: "次",
+            intro: "今日新增点赞1512次",
             meter: {
               value: 0.5,
               style:
@@ -607,7 +607,112 @@ export default defineComponent({
           },
         ],
       },
+      echartsData: {
+        option: {
+          line: {
+            grid: {
+              left: "0%",
+              right: "0%",
+              top: "0%",
+              bottom: "0%",
+              //containLabel: true
+            },
+            xAxis: [
+              {
+                show: false,
+                type: "category",
+                boundaryGap: false,
+                data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+              },
+            ],
+            yAxis: [
+              {
+                show: false,
+                type: "value",
+                max: 800,
+              },
+            ],
+            series: [
+              {
+                name: "邮件营销",
+                type: "line",
+                stack: "总量",
+                smooth: true,
+                showSymbol: false,
+                color: "#bc76c2",
+                areaStyle: {
+                  color: "#cacfdd",
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [120, 132, 101, 134, 90, 230, 210],
+              },
+              {
+                name: "联盟广告",
+                type: "line",
+                stack: "总量",
+                smooth: true,
+                showSymbol: false,
+                color: "#aabcd1",
+                areaStyle: {
+                  color: "#d4deea",
+                },
+                emphasis: {
+                  focus: "series",
+                },
+                data: [220, 182, 191, 234, 290, 330, 310],
+              },
+            ],
+          },
+        },
+      },
+      echartsObj2: {},
     });
+    let data1 = [
+      "175",
+      "173",
+      "136",
+      "100",
+      "201",
+      "257",
+      "158",
+      "248",
+      "256",
+      "106",
+      "154",
+      "160",
+      "298",
+      "252",
+      "152",
+      "222",
+      "285",
+      "220",
+      "244",
+      "134",
+    ];
+    let data2 = [
+      "221",
+      "120",
+      "231",
+      "275",
+      "227",
+      "289",
+      "192",
+      "218",
+      "252",
+      "168",
+      "224",
+      "264",
+      "208",
+      "251",
+      "161",
+      "263",
+      "245",
+      "174",
+      "265",
+      "225",
+    ];
     function echartsRing() {
       var myChart = echarts.init(document.getElementById("echartsRing"));
       // 指定图表的配置项和数据
@@ -660,65 +765,10 @@ export default defineComponent({
       myChart.setOption(option);
     }
     function echartsLine() {
-      var myChart = echarts.init(document.getElementById("echartsLine"));
-      var option = {
-        grid: {
-          left: "0%",
-          right: "0%",
-          top: "0%",
-          bottom: "0%",
-          //containLabel: true
-        },
-        xAxis: [
-          {
-            show: false,
-            type: "category",
-            boundaryGap: false,
-            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
-          },
-        ],
-        yAxis: [
-          {
-            show: false,
-            type: "value",
-            max: 800,
-          },
-        ],
-        series: [
-          {
-            name: "邮件营销",
-            type: "line",
-            stack: "总量",
-            smooth: true,
-            showSymbol: false,
-            color: "#bc76c2",
-            areaStyle: {
-              color: "#cacfdd",
-            },
-            emphasis: {
-              focus: "series",
-            },
-
-            data: [120, 132, 101, 134, 90, 230, 210],
-          },
-          {
-            name: "联盟广告",
-            type: "line",
-            stack: "总量",
-            smooth: true,
-            showSymbol: false,
-            color: "#aabcd1",
-            areaStyle: {
-              color: "#d4deea",
-            },
-            emphasis: {
-              focus: "series",
-            },
-            data: [220, 182, 191, 234, 290, 330, 310],
-          },
-        ],
-      };
-      myChart.setOption(option);
+      screen5Data.echartsObj2 = echarts.init(
+        document.getElementById("echartsLine")
+      );
+      screen5Data.echartsObj2.setOption(screen5Data.echartsData.option.line);
     }
     function progressInit() {
       //初始化进度条，必须匹配响应进度条组件
@@ -729,10 +779,23 @@ export default defineComponent({
         pro.children[0].style.width = width + "px";
       }
     }
+    function lineMove() {
+      //循环数据
+      data1.push(data1.shift());
+      data2.push(data2.shift());
+      let updata1 = data2.slice(0, 7),
+        updata2 = data1.slice(0, 7);
+      screen5Data.echartsObj2.setOption({
+        series: [{ data: updata1 }, { data: updata2 }],
+      });
+    }
     onMounted(() => {
       echartsRing();
       echartsLine();
       progressInit();
+      // setInterval(() => {
+      //   lineMove();
+      // }, 2000);
     });
     //screen6-娱乐领域
     let screen6Data = reactive({
@@ -794,11 +857,11 @@ export default defineComponent({
       screen3Data,
       screen4Data,
       radarEchart,
-      skillSelect,
       screen5Data,
       screen6Data,
       screen7Data,
       footerDiv,
+      skillSelect,
     };
   },
   data() {
@@ -902,7 +965,7 @@ body {
     align-items: center;
     li {
       padding: 0 10px;
-      line-height: 60px;
+      //line-height: 60px;
       cursor: pointer;
       font-family: "jzjdxcs";
       font-size: 18px;
@@ -1207,7 +1270,6 @@ body {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-
   .skillcard {
     box-sizing: border-box;
     padding: 1rem;
@@ -1249,6 +1311,7 @@ body {
         2px 2px 4px #d0d6df;
     }
     span:last-child {
+      opacity: 0.6;
       color: #f1f7fb;
       text-shadow: none;
       filter: drop-shadow(-2px 2px 4px #919699);
