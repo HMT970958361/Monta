@@ -183,24 +183,20 @@
       <div class="screen6-card-bottom"></div>
     </div> -->
   </div>
-
   <div class="screen7">
-    <h1>下载</h1>
-    <p>点击下载相关信息</p>
+    <h1>{{ screen7Data.theme.title }}</h1>
+    <p>{{ screen7Data.theme.subtitle }}</p>
     <div class="screen7-row">
       <div class="screen7-ring">
-        <div class="screen7-ring-inset">92%</div>
+        <div class="screen7-ring-inset">{{ screen7Data.ringNum }}%</div>
         <div class="screen7-ring-inset2"></div>
       </div>
       <div class="screen7-sorts">
-        <div class="sort">
-          <h4><span>01</span>作品源码</h4>
-        </div>
-        <div class="sort">
-          <h4><span>02</span>电子文档</h4>
-        </div>
-        <div class="sort">
-          <h4><span>03</span>用户手册</h4>
+        <div class="sort" v-for="down in screen7Data.downList" :key="down.num">
+          <h4>
+            <span>{{ down.num }}</span
+            >{{ down.name }}
+          </h4>
         </div>
       </div>
     </div>
@@ -208,23 +204,22 @@
   <div class="screen8">
     <div class="screen8-main">
       <div class="screen8-left">
-        <!-- <img src="../../public/images/H.png" alt="LOGO" /> -->
         <div class="bottom-logo">
-          <a href="/">H</a>
+          <a :href="footerDiv.logo.link">{{ footerDiv.logo.letter }}</a>
         </div>
-        <h3>HUANG</h3>
+        <h3>{{ footerDiv.logo.title }}</h3>
       </div>
       <div class="screen8-center">
         <ul class="navlist">
-          <li v-for="nav in footerNavs" :key="nav">
+          <li v-for="nav in footerDiv.navs" :key="nav">
             <a href="/">{{ nav }}</a>
           </li>
         </ul>
       </div>
       <div class="screen8-right">
-        <h3>联系本站</h3>
+        <h3>{{ footerDiv.contact }}</h3>
         <ul class="followul">
-          <li v-for="icon in followIcons" :key="icon">
+          <li v-for="icon in footerDiv.icons" :key="icon">
             <span :class="['iconfont', icon]"></span>
           </li>
         </ul>
@@ -232,9 +227,9 @@
     </div>
     <div class="screen8-info">
       <div class="screen8-info-left">
-        <p><span class="iconfont icon-youxiang"></span>Montaiyx@gmail.com</p>
+        <p><span class="iconfont icon-youxiang"></span>{{ footerDiv.email }}</p>
       </div>
-      <div class="screen8-info-right">© 2021-2021 Montaiyx</div>
+      <div class="screen8-info-right">{{ footerDiv.copyright }}</div>
     </div>
   </div>
 </template>
@@ -765,24 +760,33 @@ export default defineComponent({
         },
       ],
     });
-
+    let screen7Data = reactive({
+      theme: { title: "下载", subtitle: "相关资源下载" },
+      ringNum: 92,
+      downList: [
+        { num: "01", name: "作品文件" },
+        { num: "02", name: "源码文件" },
+        { num: "03", name: "相关文档" },
+      ],
+    });
     //底部导航栏
-    let footerNavs = reactive([
-      "Company",
-      "Notices",
-      "About",
-      "Supply",
-      "Careers",
-      "Cookies",
-      "Contact",
-      "News",
-    ]);
-    let followIcons = reactive([
-      "icon-qq",
-      "icon-weixin",
-      "icon-guge",
-      "icon-liuyan",
-    ]);
+    let footerDiv = reactive({
+      logo: { letter: "H", link: "/", title: "HUANG" },
+      navs: [
+        "Company",
+        "Notices",
+        "About",
+        "Supply",
+        "Careers",
+        "Cookies",
+        "Contact",
+        "News",
+      ],
+      contact: "联系我们",
+      icons: ["icon-qq", "icon-weixin", "icon-guge", "icon-liuyan"],
+      email: "Montaiyx@gmail.com",
+      copyright: `© 2021-2021 Montaiyx`,
+    });
     return {
       topNav,
       screen1Data,
@@ -793,8 +797,8 @@ export default defineComponent({
       skillSelect,
       screen5Data,
       screen6Data,
-      footerNavs,
-      followIcons,
+      screen7Data,
+      footerDiv,
     };
   },
   data() {
