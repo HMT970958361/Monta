@@ -5,10 +5,8 @@
         <a href="/">{{ nav.ch }}</a>
       </li>
     </ul>
-    <div class="top-logo-box">
-      <div class="top-logo">
-        <a href="/">H</a>
-      </div>
+    <div class="top-logo">
+      <a href="/">H</a>
     </div>
     <ul class="top-nav">
       <li v-for="nav in topNav.right" :key="nav.en">
@@ -154,8 +152,8 @@
           {{ sec }}
         </p>
       </div>
-      <div class="screen6-card-bottom"></div>
     </div>
+
     <div
       class="screen6-card"
       v-for="card in screen6Data.cards"
@@ -168,20 +166,7 @@
       <div class="screen6-card-content">
         <p>{{ card.content }}</p>
       </div>
-      <div class="screen6-card-bottom"></div>
     </div>
-    <!-- <div class="screen6-card3">
-      <div class="screen6-card-img"></div>
-      <div class="screen6-card-title">
-        <h4>原&nbsp;神</h4>
-      </div>
-      <div class="screen6-card-content">
-        <p>
-          游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。
-        </p>
-      </div>
-      <div class="screen6-card-bottom"></div>
-    </div> -->
   </div>
   <div class="screen7">
     <h1>{{ screen7Data.theme.title }}</h1>
@@ -193,10 +178,10 @@
       </div>
       <div class="screen7-sorts">
         <div class="sort" v-for="down in screen7Data.downList" :key="down.num">
-          <h4>
-            <span>{{ down.num }}</span
-            >{{ down.name }}
-          </h4>
+          <div>
+            <span>{{ down.num }}</span>
+            <a href="/">{{ down.name }}</a>
+          </div>
         </div>
       </div>
     </div>
@@ -265,7 +250,7 @@ export default defineComponent({
     //screen2-技能大类
     let screen2Data = reactive({
       theme: {
-        title: "硬件与软件奇妙联合",
+        title: "硬件与软件联合",
         sections: [
           {
             title: "基石",
@@ -588,22 +573,22 @@ export default defineComponent({
         ],
         row2: [
           {
-            title: "Web前端",
+            title: "新拟态UI设计",
             icon: "icon-yun",
             content:
-              "css实现圆形渐变色边框。父元素设置渐变background-image，使用一个padding，把这个padding值当做子元素的边框值看待。",
+              "19年末一位来自乌克兰的设计师AlexanderPlyuto在追波和ins上发布了下图的一张作品然后火了，浏览超30W+，获得众多设计师的喜爱，并被追波收录到2020设计趋势预测里面。有设计师称这种设计叫Neumorphism（新拟态）或者Soft UI（软UI），于是新拟态就慢慢传开了。",
           },
           {
-            title: "微信小程序",
+            title: "小程序接口鉴权",
             icon: "icon-miniapp",
             content:
-              "etState 修改 data 中想修改对象的属性。在小程序中，data 是不能直接操作的，需要使用 setData 函数。可以使用vuex全局管理数据。",
+              "接口鉴权是指后台接口（包括自建后台接口与云函数）在被调用时需要对本次接口调用进行权限校验，否则容易发生越权行为。如商品删除接口，后台在收到请求时应当校验调用者的身份信息（如 openid、 ip 地址、开发者自定义的登录态信息等），只有指定用户才可以通过校验进行删除。",
           },
           {
-            title: "游戏攻略",
+            title: "游戏推荐",
             icon: "icon-game",
             content:
-              "印章来相助 浮舟更易攻。印章种类及数量在左侧显示，分为赤色/黄色/青色/特殊/材料五种类型，印章中赤色偏向攻击，黄色偏向防御，青色偏向辅助，这三种类型同功能的印章装备不受限制，特殊类同功能的印章则只能装备1个，材料印章只能用于印章升级。",
+              "《ENDER LILIES》接近香草社的清丽美术风格和女主角，可能是很多人会想“买买买”的原因。这个瘦弱的女孩在休息、伫立和战斗时的许多神态和动作细节都能让人从心底涌现出保护欲，可以说是洛丽塔型角色的典型设计。围绕着莉莉（Lily）有很多会让人联想到美好事物的设计。",
           },
         ],
       },
@@ -622,7 +607,23 @@ export default defineComponent({
                 show: false,
                 type: "category",
                 boundaryGap: false,
-                data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+                data: [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  "13",
+                  "14",
+                  "15",
+                ],
               },
             ],
             yAxis: [
@@ -646,7 +647,7 @@ export default defineComponent({
                 emphasis: {
                   focus: "series",
                 },
-                data: [120, 132, 101, 134, 90, 230, 210],
+                //data: [205 ,298 ,157 ,266, 267, 107, 279, 117 ,295 ,142,178 ,113 ,126, 286 ,264],
               },
               {
                 name: "联盟广告",
@@ -661,7 +662,7 @@ export default defineComponent({
                 emphasis: {
                   focus: "series",
                 },
-                data: [220, 182, 191, 234, 290, 330, 310],
+                //data: [187 ,251 ,164 ,258 ,162, 200, 199 ,255 ,205, 294,247, 173 ,279, 186, 129],
               },
             ],
           },
@@ -669,50 +670,12 @@ export default defineComponent({
       },
       echartsObj2: {},
     });
-    let data1 = [
-      "175",
-      "173",
-      "136",
-      "100",
-      "201",
-      "257",
-      "158",
-      "248",
-      "256",
-      "106",
-      "154",
-      "160",
-      "298",
-      "252",
-      "152",
-      "222",
-      "285",
-      "220",
-      "244",
-      "134",
-    ];
-    let data2 = [
-      "221",
-      "120",
-      "231",
-      "275",
-      "227",
-      "289",
-      "192",
-      "218",
-      "252",
-      "168",
-      "224",
-      "264",
-      "208",
-      "251",
-      "161",
-      "263",
-      "245",
-      "174",
-      "265",
-      "225",
-    ];
+    let data1 =
+      "130 138 112 139 140 128 126 102 117 122 100 101 104 145 146 123 124 122 137 140 144 103 126 142 127 110 122 101 138 137 147 125 145 104 106 145 133 131 123 121";
+    let data2 =
+      "120 125 145 106 145 114 115 112 147 109 123 144 133 101 145 130 130 112 142 116 104 101 114 102 108 103 145 140 119 118 138 111 106 124 110 121 120 102 133 116";
+    data1 = data1.split(" ");
+    data2 = data2.split(" ");
     function echartsRing() {
       var myChart = echarts.init(document.getElementById("echartsRing"));
       // 指定图表的配置项和数据
@@ -783,8 +746,8 @@ export default defineComponent({
       //循环数据
       data1.push(data1.shift());
       data2.push(data2.shift());
-      let updata1 = data2.slice(0, 7),
-        updata2 = data1.slice(0, 7);
+      let updata1 = data2.slice(0, 15),
+        updata2 = data1.slice(0, 15);
       screen5Data.echartsObj2.setOption({
         series: [{ data: updata1 }, { data: updata2 }],
       });
@@ -793,9 +756,9 @@ export default defineComponent({
       echartsRing();
       echartsLine();
       progressInit();
-      // setInterval(() => {
-      //   lineMove();
-      // }, 2000);
+      setInterval(() => {
+        lineMove();
+      }, 3000);
     });
     //screen6-娱乐领域
     let screen6Data = reactive({
@@ -817,7 +780,7 @@ export default defineComponent({
         },
         {
           title: `原 神`,
-          img: "background-image: url(/public/images/lihui/xiao.png);",
+          img: "background-image: url(/public/images/xiao.png);",
           content:
             "游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。",
         },
@@ -905,9 +868,11 @@ a {
   }
   &:hover {
     color: #ddcd3a;
+    color: #69cde6;
   }
   &:active {
-    color: #f19f32;
+    //color: #f19f32;
+    color: #69cde6;
   }
 }
 ul {
@@ -932,11 +897,11 @@ body {
   justify-content: center;
   align-items: center;
   .top-logo {
-    width: 80px;
-    height: 80px;
-    text-indent: 30%;
-    line-height: 80px;
-    border: 2px solid #d9dee0;
+    width: 60px;
+    height: 60px;
+    text-indent: 25%;
+    line-height: 60px;
+    border: 2px solid #eef2f3;
     border-radius: 50%;
     box-shadow: inset 2px 2px 12px 4px #ebedef, 2px 2px 4px 2px #d8dee2,
       -2px -2px 4px #fff;
@@ -944,7 +909,7 @@ body {
     transition: all 0.4s;
     a {
       color: #ffffff00;
-      font-size: 3rem;
+      font-size: 40px;
       font-family: "Threadz";
       transition: all 0.1s;
     }
@@ -954,7 +919,7 @@ body {
       // border-color: #d6dce2;
       // box-shadow: inset 0px 0px 4px 0px #ebedef, 0px 0px 0px 0px #d8dee2,
       //   -0px -0px 0px #fff;
-      // text-shadow: 1px 1px 2px #d6dce2, 0 0 0 #ffffff, 1px 1px 2px #99a9b3;
+      text-shadow: 1px 1px 2px #76c4d8, 0 0 0 #ffffff, 1px 1px 2px #7bd2dd;
     }
   }
   .top-nav {
@@ -1031,7 +996,7 @@ body {
 /* 首页第2屏——技能大类页 */
 .screen2 {
   width: 100%;
-  padding-top: 200px;
+  padding: 200px 0;
   min-width: 1200px;
   box-shadow: 0 -50px 60px #e8edf3;
   background-image: url("../../public/images/bk2.png");
@@ -1134,7 +1099,7 @@ body {
   height: 400px;
   width: 100%;
   background-color: #e8edf3;
-  margin: 300px auto;
+  padding: 200px 0;
 }
 .m1cpu {
   height: 270px;
@@ -1208,7 +1173,7 @@ body {
   margin: 10px;
   border: 2px solid #e5ebec;
   border-radius: 10px;
-  filter: drop-shadow(8px 8px 8px #cbd3d8);
+  filter: drop-shadow(4px 4px 4px #adb1b3);
   background-color: #e8edf3;
   display: flex;
   flex-direction: column;
@@ -1217,7 +1182,7 @@ body {
   box-shadow: inset 0px 0px 40px 12px #eceff1;
   p {
     text-align: center;
-    color: #babfc1;
+    color: #848788;
     line-height: 2rem;
     margin: 0.5rem 0;
   }
@@ -1233,6 +1198,7 @@ body {
 .screen4 {
   background-color: @colorBk;
   height: 750px;
+  padding: 50px 0;
   width: 100%;
   min-width: 1200px;
   margin: 0 auto;
@@ -1343,11 +1309,13 @@ body {
 
 /* 首页第5屏——文章推荐 */
 .screen5 {
+  //transform: scale(1.1);
   box-sizing: border-box;
-  height: 750px;
+  height: 850px;
   width: 100%;
+  padding: 100px 0;
+  margin: 0 auto;
   min-width: 1200px;
-  margin: 100px auto;
   background-color: @colorBk;
   h1 {
     color: @colorH1;
@@ -1358,7 +1326,8 @@ body {
 .screen5-row1 {
   height: 240px;
   width: 1200px;
-  margin: 30px auto;
+  margin: 0 auto;
+  padding: 40px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1367,10 +1336,10 @@ body {
   align-items: center;
 }
 .screen5-row2 {
-  margin-top: 50px;
+  padding: 100px 0;
+  margin: 0 auto;
   height: 240px;
   width: 1200px;
-  margin: 90px auto;
   display: flex;
   flex-flow: row nowrap;
   align-content: flex-start;
@@ -1378,18 +1347,20 @@ body {
   align-items: center;
 }
 .echartgroup1 {
-  height: 240px;
-  width: 280px;
+  height: 255px;
+  width: 300px;
   overflow: hidden;
 }
 .chart-circular {
   position: absolute;
+  z-index: 10;
   height: 280px;
   width: 280px;
   //border: 1px solid #000;
 }
 .chart-line {
   position: absolute;
+  z-index: 9;
   height: 200px;
   width: 200px;
   margin: 40px;
@@ -1411,8 +1382,8 @@ body {
   }
 }
 .screen5-row1-card {
-  height: 240px;
-  width: 280px;
+  height: 255px;
+  width: 300px;
   background: #e8edf3;
   border-radius: 24px 0 0 0;
   overflow: hidden;
@@ -1438,15 +1409,17 @@ body {
       box-shadow: 2px 0px 10px 0px #5f5f5f;
     }
     h4 {
+      width: 230px;
       line-height: 50px;
-      width: 210px;
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       background: #85a4cd;
     }
   }
   .screen5-row1-card-info {
-    padding: 2rem;
+    box-sizing: border-box;
+    height: 205px;
+    padding: 2rem 3rem;
     color: #4c5568;
     p:first-child {
       font-weight: bolder;
@@ -1460,16 +1433,16 @@ body {
     }
     p:nth-child(2) {
       color: #848484;
-      padding: 0.2rem 0 1.8rem 0;
+      padding: 0.4rem 0 1.4rem 0;
     }
   }
 }
 .screen5-row2-card {
-  height: 240px;
-  width: 280px;
+  height: 255px;
+  width: 300px;
   //border: 1px solid #000;
   border-radius: 4px;
-  box-shadow: 4px 4px 10px 4px #d7dde4, -4px -4px 10px 4px #fff;
+  box-shadow: 4px 4px 10px 4px #d7dde4, -4px -4px 4px 2px #fff;
   .screen5-row2-card-header {
     height: 70px;
     display: flex;
@@ -1479,7 +1452,7 @@ body {
     border-radius: 4px;
     box-shadow: 4px 4px 6px 0px #cecece, -2px -2px 4px 0px #fff;
     span {
-      position: relative;
+      position: absolute;
       padding: 15px;
       border-radius: 50%;
       font-size: 50px;
@@ -1490,34 +1463,37 @@ body {
       box-shadow: 4px 4px 8px 2px #c2c3c3, -2px -2px 8px 4px #fff;
     }
     h4 {
+      width: 300px;
       color: #4141415e;
-      margin-left: 2rem;
-      font-size: 1.8rem;
+      text-align: center;
+      font-size: 20px;
       line-height: 70px;
       text-shadow: 1px 3px 6px #e8edf3, 0 0 0 #414141, 1px 3px 6px #e8edf3;
     }
   }
   .screen5-row2-card-content {
-    margin: 40px 20px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 150px;
+    padding: 30px;
+    line-height: 28px;
+    font-size: 14px;
+    text-align: justify;
+    color: #9da1a7;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     overflow: hidden;
-    font-size: 0.8rem;
-    color: #9da1a7;
-    height: 6rem;
-    width: 240px;
-    text-align: justify;
-    line-height: 1.2rem;
   }
 }
 /* 首页第6屏——娱乐领域 */
 .screen6 {
   box-sizing: border-box;
-  height: 500px;
+  height: 750px;
   width: 100%;
   min-width: 1200px;
   margin: 0 auto;
+  padding: 50px 0;
   background-color: @colorBk;
   display: flex;
   flex-direction: row;
@@ -1561,7 +1537,7 @@ body {
     z-index: 9;
     position: absolute;
     width: 270px;
-    height: 480px;
+    height: 500px;
     background-color: #dbe0e7;
     background-image: linear-gradient(to bottom, #f3f7fb 20%, #e8edf3);
     border-radius: 10px;
@@ -1574,22 +1550,19 @@ body {
       font-size: 14px;
     }
   }
-  .screen6-theme-bottom {
-    z-index: 8;
-    position: absolute;
-    width: 270px;
-    height: 250px;
-    margin-top: 250px;
-    border-radius: 10px;
-    box-shadow: 2px 4px 8px #b98b74;
-    background-image: linear-gradient(to bottom, #e8edf3 50%, #cfd7de);
-    mask-image: linear-gradient(359deg, black 40%, transparent);
-    -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
-  }
 }
 .screen6-card {
+  position: relative;
+  z-index: 10;
   width: 270px;
   height: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px 4px #bdbc94;
+  transition: all 0.5s;
+  &:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 4px 2px #bdbc94;
+  }
   .screen6-card-img {
     position: absolute;
     z-index: 9;
@@ -1624,9 +1597,10 @@ body {
     z-index: 9;
     position: absolute;
     width: 270px;
-    height: 480px;
+    height: 500px;
+    border-radius: 10px;
     box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
-    background-image: linear-gradient(to bottom, #e8edf3 50%, #f6e393);
+    background-image: linear-gradient(to bottom, #e8edf3 50%, #f3da70);
     mask-image: url("../../public/images/tx.png");
     -webkit-mask-image: url("../../public/images/tx.png");
     p {
@@ -1634,26 +1608,18 @@ body {
       bottom: 0px;
       text-indent: 2rem;
       text-align: justify;
-      color: #727272;
+      color: #bd9c40;
       font-size: 14px;
       padding: 2rem 1rem;
     }
   }
-  .screen6-card-bottom {
-    z-index: 8;
-    position: absolute;
-    width: 270px;
-    height: 250px;
-    margin-top: 250px;
-    border-radius: 10px;
-    background-image: linear-gradient(to bottom, #e8edf3 20%, #e6d381);
-    mask-image: linear-gradient(359deg, black 40%, transparent);
-    -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
-  }
 }
 .screen6-card:nth-child(3) {
-  .screen6-card-img {
-    background-size: 120%;
+  box-shadow: 0px 0px 12px 4px #94b0bd;
+  transition: all 0.5s;
+  &:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 4px 2px #94b0bd;
   }
   .screen6-card-title {
     h4 {
@@ -1668,9 +1634,12 @@ body {
   .screen6-card-content {
     box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
     background-image: linear-gradient(to bottom, #e8edf3 50%, #95f0ea);
+    p {
+      color: #66a0bb;
+    }
   }
   .screen6-card-bottom {
-    background-image: linear-gradient(to bottom, #e8edf3 20%, #69e4dc);
+    background-image: linear-gradient(to bottom, #e8edf3 20%, #59c1bb);
     mask-image: linear-gradient(359deg, black 40%, transparent);
     -webkit-mask-image: linear-gradient(359deg, black 40%, transparent);
   }
@@ -1679,7 +1648,8 @@ body {
 .screen7 {
   height: 400px;
   width: 1200px;
-  margin: 100px auto;
+  padding: 50px 0;
+  margin: 0 auto;
   h1 {
     color: #505050;
     padding: 1rem 0;
@@ -1702,7 +1672,7 @@ body {
   border-radius: 50%;
   background-image: linear-gradient(90deg, #ffb18d 30%, #dc528f, #4953ce);
   mask-image: linear-gradient(180deg, black, transparent);
-  -webkit-mask-image: linear-gradient(180deg, black, transparent);
+  -webkit-mask-image: linear-gradient(180deg, black 50%, transparent);
 }
 .screen7-ring-inset {
   position: absolute;
@@ -1736,19 +1706,25 @@ body {
   align-items: center;
   width: 800px;
 }
-.sort {
-  h4 {
+.sort div {
+  span:nth-child(1) {
+    margin-right: 1.2rem;
+    font-size: 4rem;
+    font-weight: 400;
+    color: #9aa4b5;
+    text-shadow: 2px 2px 2px #646567, -2px -2px 2px #ffffff;
+    font-family: sans-serif;
+  }
+  a:nth-child(2) {
+    cursor: pointer;
     font-weight: normal;
     font-size: 2rem;
     color: #626e71;
     font-family: monospace;
-    span {
-      margin-right: 1.2rem;
-      font-size: 4rem;
-      font-weight: 400;
-      color: #9aa4b5;
-      text-shadow: 2px 2px 2px #646567, -2px -2px 2px #ffffff;
-      font-family: sans-serif;
+    transition: all .5s;
+    text-decoration: underline solid #93a4a800;
+    &:hover{
+      text-decoration: underline solid #93a4a8;
     }
   }
 }
@@ -1818,12 +1794,12 @@ body {
     height: 40px;
     line-height: 40px;
     &:hover {
-      color: #ffcc24;
+      color: #69cde6;
     }
     a {
-      color: #ccd2da;
+      color: #dee4ec;
       &:hover {
-        color: #ffcc24;
+        color: #69cde6;
       }
     }
   }
