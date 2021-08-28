@@ -24,6 +24,8 @@
     </div>
   </div>
   <div class="strip"></div>
+  <div>
+  </div>
   <div class="screen2">
     <div class="screen2-introduce">
       <h1>{{ screen2Data.theme.title }}</h1>
@@ -153,13 +155,11 @@
         </p>
       </div>
     </div>
-
-    <div
-      class="screen6-card"
+    <div class="screen6-card"
       v-for="card in screen6Data.cards"
       :key="card.title"
     >
-      <div class="screen6-card-img" :style="card.img"></div>
+      <div class="screen6-card-img"></div>
       <div class="screen6-card-title">
         <h4>{{ card.title }}</h4>
       </div>
@@ -221,7 +221,9 @@
 
 <script>
 import { defineComponent, reactive, onMounted } from "vue";
-import * as echarts from "echarts";
+//import * as echarts from "echarts";
+import img_ROGZ590A from '../assets/images/ROGZ590A.png'
+import img_DNA from '../assets/images/DNA.png'
 export default defineComponent({
   setup(props, context) {
     //顶部导航栏
@@ -266,12 +268,12 @@ export default defineComponent({
       },
       cards: [
         {
-          img: "../../public/images/ROGZ590A.png",
+          img: img_ROGZ590A,
           content:
             "电子信息科学与技术专业培养适应社会与经济发展需要，具有道德文化素养、社会责任感、创新精神和创业意识，掌握必备的数学、自然科学基础知识和相应专业知识，具备良好的学习能力、实践能力、专业能力和一定的创新创业能力，身心健康，可从事电子信息及相关领域中系统、设备和器件的研究、设计、开发、制造、应用、维护、管理等工作的高素质专门人才。",
         },
         {
-          img: "../../public/images/DNA.png",
+          img: img_DNA,
           content:
             "前端即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验。",
         },
@@ -647,7 +649,7 @@ export default defineComponent({
                 emphasis: {
                   focus: "series",
                 },
-                //data: [205 ,298 ,157 ,266, 267, 107, 279, 117 ,295 ,142,178 ,113 ,126, 286 ,264],
+                data: [130 ,138, 112, 139, 140 ,128 ,126 ,102, 117 ,122 ,100 ,101 ,104, 145, 146],
               },
               {
                 name: "联盟广告",
@@ -662,7 +664,7 @@ export default defineComponent({
                 emphasis: {
                   focus: "series",
                 },
-                //data: [187 ,251 ,164 ,258 ,162, 200, 199 ,255 ,205, 294,247, 173 ,279, 186, 129],
+                data: [120 ,125, 145 ,106 ,145 ,114 ,115 ,112 ,147, 109 ,123, 144 ,133, 101, 145],
               },
             ],
           },
@@ -774,18 +776,17 @@ export default defineComponent({
       cards: [
         {
           title: `剑 灵`,
-          img: "background-image: url(/public/images/jl.png);",
           content:
             "剑灵凭借完美的视觉表现力,电影版的剧情体验,深厚的东方文化底蕴,自由灵活的战斗体验,成为突破传统、引领潮流的最受期待网游。",
         },
         {
           title: `原 神`,
-          img: "background-image: url(/public/images/xiao.png);",
           content:
             "游戏发生在一个被称作“提瓦特”的幻想世界，在这里，被神选中的人将被授予“神之眼”，导引元素之力。",
         },
       ],
     });
+    //screen7-下载相关
     let screen7Data = reactive({
       theme: { title: "下载", subtitle: "相关资源下载" },
       ringNum: 92,
@@ -808,7 +809,7 @@ export default defineComponent({
         "Contact",
         "News",
       ],
-      contact: "联系我们",
+      contact: "与我联系",
       icons: ["icon-qq", "icon-weixin", "icon-guge", "icon-liuyan"],
       email: "Montaiyx@gmail.com",
       copyright: `© 2021-2021 Montaiyx`,
@@ -838,16 +839,12 @@ export default defineComponent({
 
 <style lang="less">
 @font-face {
-  font-family: "msyh";
-  src: url("../../public/fonts/msyh.ttf");
-}
-@font-face {
   font-family: "jzjdxcs";
-  src: url("../../public/fonts/jzjdxcs.ttf");
+  src: url("../assets/fonts/jzjdxcs.ttf");
 }
 @font-face {
   font-family: "Threadz";
-  src: url("../../public/fonts/Threadz-Needle-1.ttf");
+  src: url("../assets/fonts/Threadz-Needle-1.ttf");
 }
 @themeColor: #565656;
 @colorBk: #e8edf3;
@@ -943,7 +940,7 @@ body {
   height: 100vh;
   width: 100%;
   min-width: 1200px;
-  background-image: url("../../public/images/bk1.png");
+  background-image: url("../assets/images/bk1.png");
   background-color: @colorBk;
   background-position: 65% 50%;
   background-size: 180%;
@@ -999,7 +996,7 @@ body {
   padding: 200px 0;
   min-width: 1200px;
   box-shadow: 0 -50px 60px #e8edf3;
-  background-image: url("../../public/images/bk2.png");
+  background-image: url("../assets/images/bk2.png");
   background-color: @colorBk;
   background-position: bottom;
   background-size: 1920px 1080px;
@@ -1043,7 +1040,7 @@ body {
   color: #8c8c8c;
   text-indent: 2rem;
   //text-align: center;
-  background-image: url("../../public/images/btn.png");
+  background-image: url("../assets/images/btn.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -1053,7 +1050,7 @@ body {
     margin-left: 10px;
   }
   &:hover {
-    background-image: url("../../public/images/btn2.png");
+    background-image: url("../assets/images/btn2.png");
     span {
       margin-left: 20px;
     }
@@ -1069,7 +1066,7 @@ body {
   //height: 300px;
   color: #787a7b;
   transition: all 0.5s;
-  background-image: url("../../public/images/block1.png");
+  background-image: url("../assets/images/block1.png");
   background-size: 360px auto;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -1082,7 +1079,7 @@ body {
     }
   }
   &:hover {
-    background-image: url("../../public/images/block2.png");
+    background-image: url("../assets/images/block2.png");
   }
 }
 .card-content {
@@ -1103,7 +1100,7 @@ body {
 }
 .m1cpu {
   height: 270px;
-  background-image: url("../../public/images/m1.jpg");
+  background-image: url("../assets/images/m1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 1920px 900px;
@@ -1156,13 +1153,13 @@ body {
     cursor: pointer;
     height: 100px;
     width: 100px;
-    background-image: url("../../public/images/play.png");
+    background-image: url("../assets/images/play.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: bottom;
     transition: all 0.3s ease-in;
     &:hover {
-      background-image: url("../../public/images/play2.png");
+      background-image: url("../assets/images/play2.png");
     }
   }
 }
@@ -1302,7 +1299,7 @@ body {
     box-shadow: -8px -8px 18px #ffffff, 8px 8px 18px #cacfd4;
     // text-align: center;
     // line-height: 540px;
-    // background-image: url("../../public/images/zz.png");
+    // background-image: url("../assets/images/zz.png");
     // background-size: 100%;
   }
 }
@@ -1490,7 +1487,7 @@ body {
 .screen6 {
   box-sizing: border-box;
   height: 750px;
-  width: 100%;
+  width: 1200px;
   min-width: 1200px;
   margin: 0 auto;
   padding: 50px 0;
@@ -1572,6 +1569,7 @@ body {
     background-position: bottom;
     background-repeat: no-repeat;
     background-position: top;
+    background-image: url(../assets/images/bns.png);
   }
   .screen6-card-title {
     margin-left: 2rem;
@@ -1601,8 +1599,8 @@ body {
     border-radius: 10px;
     box-shadow: 2px 4px 8px #a9bace, -2px -4px 8px #ffffff;
     background-image: linear-gradient(to bottom, #e8edf3 50%, #f3da70);
-    mask-image: url("../../public/images/tx.png");
-    -webkit-mask-image: url("../../public/images/tx.png");
+    mask-image: url("../assets/images/tx.png");
+    -webkit-mask-image: url("../assets/images/tx.png");
     p {
       position: absolute;
       bottom: 0px;
@@ -1620,6 +1618,9 @@ body {
   &:hover {
     transform: scale(0.98);
     box-shadow: 0px 0px 4px 2px #94b0bd;
+  }
+    .screen6-card-img {
+    background-image: url(../assets/images/xiao.png);
   }
   .screen6-card-title {
     h4 {
@@ -1772,7 +1773,7 @@ body {
       border-radius: 50%;
       border: 4px solid;
       &:hover {
-        color: #ffcc24;
+          color: #69cde6;
       }
     }
   }
@@ -1824,12 +1825,13 @@ body {
     height: 64px;
     line-height: 64px;
     border-radius: 12px;
-    transition: all 0.3s;
+    transition: all .3s ease-out;
     &:hover {
-      transform: scale(0.9);
+      //transform: scale(0.95);
       .iconfont {
         box-shadow: -1px -1px 2px #c8cbcf, 1px 1px 4px #46494c,
           inset 1px 1px 2px 0px #fff;
+        text-shadow: 1px 1px 1px #646567, -1px -1px 1px #ffffff;
       }
     }
   }
@@ -1842,6 +1844,7 @@ body {
     box-shadow: -2px -2px 4px #c8cbcf, 2px 2px 8px #46494c,
       inset 0px 0px 2px 1px #fff;
     text-shadow: 2px 2px 2px #646567, -2px -2px 2px #ffffff;
+    transition: all .3s ease-out;
   }
 }
 .screen8-info {
