@@ -2,7 +2,7 @@
   <header class="top-header">
     <ul class="top-nav">
       <li v-for="nav in topNav.left" :key="nav.en">
-        <a href="/">{{ nav.ch }}</a>
+        <router-link :to="nav.url">{{nav.ch}}</router-link>
       </li>
     </ul>
     <div class="top-logo">
@@ -10,7 +10,7 @@
     </div>
     <ul class="top-nav">
       <li v-for="nav in topNav.right" :key="nav.en">
-        <a href="/">{{ nav.ch }}</a>
+        <router-link :to="nav.url">{{nav.ch}}</router-link>
       </li>
     </ul>
   </header>
@@ -33,7 +33,7 @@
         <span>{{ section.title }}&nbsp;·&nbsp;</span>
         <span>{{ section.content }}</span>
       </h3>
-      <div class="basebtn">了解更多<span>▶</span></div>
+      <div class="basebtn">了解更多<span class="iconfont icon-play"></span></div>
     </div>
     <div class="card" v-for="(card, index) in screen2Data.cards" :key="index">
       <img class="entity" :src="card.img" alt="3d" />
@@ -53,7 +53,7 @@
       <div class="vedioc2" v-for="pro in screen3Data.products" :key="pro.title">
         <h3 class="vedioc2-title">{{ pro.title }}</h3>
         <p>{{ pro.subtitle }}</p>
-        <div class="basebtn">了解更多<span>▶</span></div>
+        <div class="basebtn">了解更多<span class="iconfont icon-play"></span></div>
       </div>
     </div>
   </div>
@@ -226,11 +226,10 @@ import img_ROGZ590A from '../assets/images/ROGZ590A.png'
 import img_DNA from '../assets/images/DNA.png'
 export default defineComponent({
   setup(props, context) {
-    //顶部导航栏
     let topNav = reactive({
       left: [
         { ch: "首页", en: "Home", url: "/" },
-        { ch: "作品集锦", en: "Portfolio", url: "/portfolio" },
+        { ch: "作品集锦", en: "Portfolio", url: "/works" },
         { ch: "软件领域", en: "Software", url: "/software" },
       ],
       center: { icon: "H", url: "" },
@@ -836,8 +835,7 @@ export default defineComponent({
   watch: {},
 });
 </script>
-
-<style lang="less">
+<style lang="less" scoped>
 @font-face {
   font-family: "jzjdxcs";
   src: url("../assets/fonts/jzjdxcs.ttf");
@@ -864,7 +862,6 @@ a {
     color: @colorFont;
   }
   &:hover {
-    color: #ddcd3a;
     color: #69cde6;
   }
   &:active {
