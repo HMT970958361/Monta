@@ -1,9 +1,9 @@
 <template>
-  <header>
-    <div class="topnav">
+  <header class="topheader">
+    <div class="header-left">
       <div class="topnav-normal">
         <img src="../assets/images/hlogo.png" alt="H" />
-        <span>返回首页</span>
+        <router-link to="/">返回首页</router-link>
       </div>
       <ul class="topnav-ul">
         <li v-for="link in topNav.links" :key="link.en">
@@ -11,13 +11,17 @@
         </li>
       </ul>
     </div>
-    <div class="topsearch">
-      <div class="topsearch-normal"></div>
-      <div class="topsearch-input"></div>
-    </div>
-    <div class="topul">
-      <div class="topul-normal"></div>
-      <ul class="topul-list"></ul>
+    <div class="header-right">
+      <div class="topsearch">
+        <div class="topsearch-input">
+          <input type="text" id="">
+        </div>
+        <div class="topsearch-normal iconfont icon-btn_search"></div>
+      </div>
+      <div class="topul">
+        <div class="topul-normal iconfont icon-shezhi"></div>
+        <ul class="topul-list"></ul>
+      </div>
     </div>
   </header>
 </template>
@@ -81,7 +85,14 @@ a {
     color: #69cde6;
   }
 }
-.topnav {
+.topheader {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-left {
+  width: 220px;
   .topnav-normal {
     width: 200px;
     padding: 10px;
@@ -95,7 +106,7 @@ a {
     img {
       width: 50px;
     }
-    span {
+    a {
       padding: 0 13px;
       color: @colorFont;
       font-family: "jzjdxcs";
@@ -103,16 +114,60 @@ a {
     }
   }
   .topnav-ul {
+    display: none;
     list-style: none;
+    position: absolute;
+    z-index: 10;
     li {
       width: 200px;
-      padding: 10px;
+      padding: 8px;
       padding-left: 40px;
       text-align: center;
       font-family: "jzjdxcs";
       font-size: 20px;
       //background-color: @btnBk;
     }
+  }
+  &:hover {
+    .topnav-ul {
+      display: block;
+    }
+  }
+}
+.header-right {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: end;
+  align-items: center;
+}
+.topsearch {
+  width: 600px;
+  .topsearch-normal {
+    font-size: 24px;
+    color: @colorFont;
+    padding: 13px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px #a9aaaa, -2px -2px 4px #fff;
+  }
+  .topsearch-input{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: end;
+    align-items: center;
+    input{
+      border: none;
+      background-color: #e8edf300;
+    }
+  }
+}
+.topul {
+  margin: 0 30px;
+  .topul-normal {
+    font-size: 24px;
+    color: @colorFont;
+    padding: 13px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px #a9aaaa, -2px -2px 4px #fff;
   }
 }
 </style>
