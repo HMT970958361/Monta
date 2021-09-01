@@ -225,6 +225,9 @@ import { defineComponent, reactive, onMounted } from "vue";
 import img_ROGZ590A from '../assets/images/ROGZ590A.png'
 import img_DNA from '../assets/images/DNA.png'
 export default defineComponent({
+    mounted() {
+    document.body.style='overflow:auto;'
+  },
   setup(props, context) {
     let topNav = reactive({
       left: [
@@ -830,8 +833,6 @@ export default defineComponent({
   data() {
     return {};
   },
-  methods: {},
-  mounted() {},
   watch: {},
 });
 </script>
@@ -856,10 +857,10 @@ a {
   text-decoration: none;
   transition: all 0.5s;
   &:link {
-    color: #d6d6d6;
+    color: #565656;
   }
   &:visited {
-    color: @colorFont;
+    color: #565656;
   }
   &:hover {
     color: #69cde6;

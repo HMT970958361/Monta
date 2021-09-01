@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2341289 */
-  src: url('//at.alicdn.com/t/font_2341289_nzbe2gdvl8o.ttf?t=1629360057317') format('truetype');
+  src: url('iconfont.ttf?t=1630412916868') format('truetype');
 }
 
 .iconfont {
@@ -130,3 +130,4 @@
 .icon-laba:before {
   content: "\e614";
 }
+

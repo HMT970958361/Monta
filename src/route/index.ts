@@ -6,8 +6,8 @@ export default createRouter({
     history: createWebHistory(),
     // 路由地址
     routes: [
-        {path:'/works',component:HomePage},
-        {path:'/',component:WorksCollection},
+        {path:'/',component:HomePage},
+        {path:'/works',component:WorksCollection},
         {path:'/software',component:HomePage},
         {path:'/hardware',component:HomePage},
         {path:'/game',component:HomePage},

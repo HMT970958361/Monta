@@ -1,5 +1,4 @@
 <template>
-
   <router-view></router-view>
 </template>
 
@@ -72,6 +71,5 @@ ul {
 }
 body {
   background-color: #ebf0f5;
-  overflow: hidden;
 }
 </style>
