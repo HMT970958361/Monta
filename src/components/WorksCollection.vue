@@ -1,12 +1,9 @@
 <template>
+  <h1>我是分枝</h1>
   <header class="header">
     <div class="header-left" @mouseleave="topNavAble('leave')">
       <div class="topnav-title" @mouseover="topNavAble('over')">
-        <img
-          :src="hlogo"
-          alt="H"
-          class="topnav-title-icon"
-        />
+        <img :src="hlogo" alt="H" class="topnav-title-icon" />
         <router-link to="/" class="topnav-title-a">{{
           topNav.title
         }}</router-link>
@@ -34,13 +31,13 @@
           class="topoption-ul"
           :class="optionBtn.show ? 'topoption-able' : ''"
         >
-          <li v-for="(opt,index) in optionBtn.options" :key="opt.name">
+          <li v-for="(opt, index) in optionBtn.options" :key="opt.name">
             <label :for="opt.id">{{ opt.name }}</label>
             <input
               :id="opt.id"
               type="checkbox"
               v-model="opt.value"
-              :disabled="index==2"
+              :disabled="index == 2"
             />
           </li>
         </ul>
@@ -50,7 +47,7 @@
   <main :class="['main']" id="main">
     <div class="mainmask" id="mainMask">
       <video
-        :src="'assets/video/'+videoOpts.msg.videourl"
+        :src="'assets/video/' + videoOpts.msg.videourl"
         class="mainvideo"
         muted
         loop
@@ -135,37 +132,38 @@
     :style="workDetail.show ? 'transform: translateY(100px);opacity:0;' : ''"
   >
     <span class="iconfont icon-shoucang"></span>
-    <span>{{videoOpts.msg.name}}</span>
+    <span>{{ videoOpts.msg.name }}</span>
   </footer>
 </template>
 
 
 <script>
 import { defineComponent, reactive, onMounted, watch } from "vue";
-import hlogo from '../assets/images/hlogo.png'
-import sjx from '../assets/images/sjx.png'
+import hlogo from "../assets/images/hlogo.png";
+import sjx from "../assets/images/sjx.png";
 export default defineComponent({
   data() {
     return {
-      hlogo,sjx
-    }
+      hlogo,
+      sjx,
+    };
   },
   mounted() {
     document.body.style = "overflow:hidden;";
   },
   setup(props, context) {
-    var worksData =reactive([
-      {name:'特斯拉线圈',platform:'电子制作',videourl:'tslq.mp4'},
-      {name:'脱氧核糖核酸',platform:'DNA',videourl:'dna.mp4'},
-      {name:'无线呼叫系统',platform:'cpu',videourl:'cpu.mp4'},
-      {name:'智慧城市网络',platform:'PC',videourl:'zhihuicity.mp4'},
-      {name:'智慧树',platform:'PC',videourl:'tree.mp4'},
-      {name:'地球网络',platform:'earth',videourl:'earth.mp4'},
-      {name:'水晶DNA',platform:'cpu',videourl:'dna2.mp4'},
-      {name:'水晶钻石',platform:'cpu',videourl:'zuanshi.mp4'},
-      {name:'生长树',platform:'cpu',videourl:'tree2.mp4'},
-      {name:'cpu2型',platform:'cpu',videourl:'cpu2.mp4'},
-    ])
+    var worksData = reactive([
+      { name: "特斯拉线圈", platform: "电子制作", videourl: "tslq.mp4" },
+      { name: "脱氧核糖核酸", platform: "DNA", videourl: "dna.mp4" },
+      { name: "无线呼叫系统", platform: "cpu", videourl: "cpu.mp4" },
+      { name: "智慧城市网络", platform: "PC", videourl: "zhihuicity.mp4" },
+      { name: "智慧树", platform: "PC", videourl: "tree.mp4" },
+      { name: "地球网络", platform: "earth", videourl: "earth.mp4" },
+      { name: "水晶DNA", platform: "cpu", videourl: "dna2.mp4" },
+      { name: "水晶钻石", platform: "cpu", videourl: "zuanshi.mp4" },
+      { name: "生长树", platform: "cpu", videourl: "tree2.mp4" },
+      { name: "cpu2型", platform: "cpu", videourl: "cpu2.mp4" },
+    ]);
     //Header左侧导航
     let topNav = reactive({
       icon: { icon: "H", url: "" },
@@ -283,7 +281,7 @@ export default defineComponent({
     //视频外围圆环
     let deg = 0;
     let animateId = null;
-    let ringLock=true;
+    let ringLock = true;
     function pointRing() {
       //圆环环绕动画
       //let ring = document.getElementById('ring')
@@ -297,7 +295,7 @@ export default defineComponent({
         point.style.left = px + "px";
         if (deg > Math.PI / 2) deg = -Math.PI / 2;
         setTimeout(() => {
-          if(ringLock)animateId = window.requestAnimationFrame(up);
+          if (ringLock) animateId = window.requestAnimationFrame(up);
         }, 10);
       }
     }
@@ -305,7 +303,7 @@ export default defineComponent({
 
     var videoOpts = reactive({
       videoEle: {},
-      msg: {name:'特斯拉线圈',platform:'电子制作',videourl:'tslq.mp4'},
+      msg: { name: "特斯拉线圈", platform: "电子制作", videourl: "tslq.mp4" },
       hover: false,
       clock: false,
       playOpt: { autoplay: true, pause: false, width: 400, height: "auto" },
@@ -328,30 +326,27 @@ export default defineComponent({
         optionBtn.options[2].value,
       ],
       ([new0, new1, new2]) => {
-        if (new0){
+        if (new0) {
           videoOpts.videoEle.play();
-          ringLock=true
+          ringLock = true;
           pointRing();
-          }
-        else {
+        } else {
           videoOpts.videoEle.pause();
-          setTimeout(()=>{
-            ringLock=false
-            window.cancelAnimationFrame(animateId)
-          },0)
-          
+          setTimeout(() => {
+            ringLock = false;
+            window.cancelAnimationFrame(animateId);
+          }, 0);
         }
-        if(new1){
-          autoNextF()
+        if (new1) {
+          autoNextF();
+        } else {
+          window.clearInterval(worksList.setInterval);
+          worksList.setInterval = null;
         }
-        else {
-          window.clearInterval(worksList.setInterval)
-          worksList.setInterval=null
-          }
       }
     );
     onMounted(() => {
-      videoOpts.msg=worksData[worksList.selected]
+      videoOpts.msg = worksData[worksList.selected];
       videoOpts.videoEle = document.getElementById("workVideo");
       videoOpts.videoEle.currentTime = 3;
       pointRing();
@@ -376,14 +371,13 @@ export default defineComponent({
         dy = (index - 2) * 80;
         worksList.workulStyle = "transform: translateY(-" + dy + "px);";
       }
-      if(index>=0 && index<2 || index>10){
+      if ((index >= 0 && index < 2) || index > 10) {
         worksList.workulStyle = "transform: translateY(-" + 0 + "px);";
       }
       //let video = document.getElementById('mainMask')
       //待完成：视频切换动效，三个圆的交互
       worksList.selected = index;
-      videoOpts.msg=worksData[worksList.selected]
-      
+      videoOpts.msg = worksData[worksList.selected];
     }
     function mouseTouch(e) {
       switch (e.type) {
@@ -433,21 +427,22 @@ export default defineComponent({
           break;
       }
     }
-    function autoNextF(){
-      if(!worksList.setInterval)worksList.setInterval = setInterval(() => {
-        worksList.selected++
-        if(worksList.selected>10)worksList.selected=0
-        selectwork(worksList.selected)
-      }, 1000);
+    function autoNextF() {
+      if (!worksList.setInterval)
+        worksList.setInterval = setInterval(() => {
+          worksList.selected++;
+          if (worksList.selected > 10) worksList.selected = 0;
+          selectwork(worksList.selected);
+        }, 1000);
     }
     onMounted(() => {
-      let ul = []
-      for(let i=0;i<worksData.length;i++){
-        console.log(worksData[i])
-        ul.push(worksData[i].name)
+      let ul = [];
+      for (let i = 0; i < worksData.length; i++) {
+        console.log(worksData[i]);
+        ul.push(worksData[i].name);
       }
-      worksList.data=ul
-    })
+      worksList.data = ul;
+    });
     //详情页
     let workDetail = reactive({
       show: false,
@@ -508,7 +503,6 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-
 @themeColor: #565656;
 @colorBk: #e8edf3;
 @colorFont: #737b81;
@@ -774,35 +768,35 @@ a {
   left: calc((100% - 60%) / 2);
   top: calc((100% - 500px) / 2);
   transition: all 1s;
-  &:hover{
+  &:hover {
     .centerbtn1 {
-  transform: scale(1);
-}
-.centerbtn2 {
-  transform: scale(1);
-}
+      transform: scale(1);
+    }
+    .centerbtn2 {
+      transform: scale(1);
+    }
   }
-  &::before{
-    content: '';
+  &::before {
+    content: "";
     position: absolute;
     z-index: 1;
     width: 480px;
     height: 480px;
     border-radius: 50%;
     border: 1px solid #c3d3db;
-    left: calc((100% -  480px) / 2);
-    top: calc((100% -  480px) / 2);
+    left: calc((100% - 480px) / 2);
+    top: calc((100% - 480px) / 2);
   }
-  &::after{
-    content: '';
+  &::after {
+    content: "";
     position: absolute;
     z-index: 1;
     width: 660px;
     height: 660px;
     border-radius: 50%;
     border: 1px solid #c3d3db;
-    left: calc((100% -  660px) / 2);
-    top: calc((100% -  660px) / 2);
+    left: calc((100% - 660px) / 2);
+    top: calc((100% - 660px) / 2);
   }
 }
 .mainmask {
@@ -830,7 +824,6 @@ a {
     -webkit-backface-visibility: hidden;
     -webkit-transform: translate3d(0, 0, 0);
   }
-
 }
 .maindetail {
   width: 1200px;
