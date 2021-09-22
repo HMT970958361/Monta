@@ -2,7 +2,7 @@
   <header class="top-header">
     <ul class="top-nav">
       <li v-for="nav in topNav.left" :key="nav.en">
-        <router-link :to="nav.url">{{nav.ch}}</router-link>
+        <router-link :to="nav.url">{{ nav.ch }}</router-link>
       </li>
     </ul>
     <div class="top-logo">
@@ -10,7 +10,7 @@
     </div>
     <ul class="top-nav">
       <li v-for="nav in topNav.right" :key="nav.en">
-        <router-link :to="nav.url">{{nav.ch}}</router-link>
+        <router-link :to="nav.url">{{ nav.ch }}</router-link>
       </li>
     </ul>
   </header>
@@ -24,8 +24,7 @@
     </div>
   </div>
   <div class="strip"></div>
-  <div>
-  </div>
+  <div></div>
   <div class="screen2">
     <div class="screen2-introduce">
       <h1>{{ screen2Data.theme.title }}</h1>
@@ -33,7 +32,9 @@
         <span>{{ section.title }}&nbsp;·&nbsp;</span>
         <span>{{ section.content }}</span>
       </h3>
-      <div class="basebtn">了解更多<span class="iconfont icon-play"></span></div>
+      <div class="basebtn">
+        了解更多<span class="iconfont icon-play"></span>
+      </div>
     </div>
     <div class="card" v-for="(card, index) in screen2Data.cards" :key="index">
       <img class="entity" :src="card.img" alt="3d" />
@@ -53,7 +54,9 @@
       <div class="vedioc2" v-for="pro in screen3Data.products" :key="pro.title">
         <h3 class="vedioc2-title">{{ pro.title }}</h3>
         <p>{{ pro.subtitle }}</p>
-        <div class="basebtn">了解更多<span class="iconfont icon-play"></span></div>
+        <div class="basebtn">
+          了解更多<span class="iconfont icon-play"></span>
+        </div>
       </div>
     </div>
   </div>
@@ -155,7 +158,8 @@
         </p>
       </div>
     </div>
-    <div class="screen6-card"
+    <div
+      class="screen6-card"
       v-for="card in screen6Data.cards"
       :key="card.title"
     >
@@ -214,7 +218,11 @@
       <div class="screen8-info-left">
         <p><span class="iconfont icon-youxiang"></span>{{ footerDiv.email }}</p>
       </div>
-      <div class="screen8-info-right">{{ footerDiv.copyright }}</div>
+      <div class="screen8-info-right">
+        <a :href="info.url" v-for="info in footerDiv.infos" :key="info.type">{{
+          info.txt
+        }}</a>
+      </div>
     </div>
   </div>
 </template>
@@ -222,11 +230,11 @@
 <script>
 import { defineComponent, reactive, onMounted } from "vue";
 //import * as echarts from "echarts";
-import img_ROGZ590A from '../assets/images/ROGZ590A.png'
-import img_DNA from '../assets/images/DNA.png'
+import img_ROGZ590A from "../assets/images/ROGZ590A.png";
+import img_DNA from "../assets/images/DNA.png";
 export default defineComponent({
-    mounted() {
-    document.body.style='overflow:auto;'
+  mounted() {
+    document.body.style = "overflow:auto;";
   },
   setup(props, context) {
     let topNav = reactive({
@@ -651,7 +659,10 @@ export default defineComponent({
                 emphasis: {
                   focus: "series",
                 },
-                data: [130 ,138, 112, 139, 140 ,128 ,126 ,102, 117 ,122 ,100 ,101 ,104, 145, 146],
+                data: [
+                  130, 138, 112, 139, 140, 128, 126, 102, 117, 122, 100, 101,
+                  104, 145, 146,
+                ],
               },
               {
                 name: "联盟广告",
@@ -666,7 +677,10 @@ export default defineComponent({
                 emphasis: {
                   focus: "series",
                 },
-                data: [120 ,125, 145 ,106 ,145 ,114 ,115 ,112 ,147, 109 ,123, 144 ,133, 101, 145],
+                data: [
+                  120, 125, 145, 106, 145, 114, 115, 112, 147, 109, 123, 144,
+                  133, 101, 145,
+                ],
               },
             ],
           },
@@ -814,7 +828,14 @@ export default defineComponent({
       contact: "与我联系",
       icons: ["icon-qq", "icon-weixin", "icon-guge", "icon-liuyan"],
       email: "Montaiyx@gmail.com",
-      copyright: `© 2021-2021 Montaiyx`,
+      infos: [
+        { type: "copyright", txt: `© 2021-2021 Montaiyx`, url: "" },
+        {
+          type: "record",
+          txt: `备案号：渝ICP备2021009310号`,
+          url: "https://beian.miit.gov.cn",
+        },
+      ],
     });
     return {
       topNav,
@@ -1617,7 +1638,7 @@ body {
     transform: scale(0.98);
     box-shadow: 0px 0px 4px 2px #94b0bd;
   }
-    .screen6-card-img {
+  .screen6-card-img {
     background-image: url(../assets/images/xiao.png);
   }
   .screen6-card-title {
@@ -1720,9 +1741,9 @@ body {
     font-size: 2rem;
     color: #626e71;
     font-family: monospace;
-    transition: all .5s;
+    transition: all 0.5s;
     text-decoration: underline solid #93a4a800;
-    &:hover{
+    &:hover {
       text-decoration: underline solid #93a4a8;
     }
   }
@@ -1771,7 +1792,7 @@ body {
       border-radius: 50%;
       border: 4px solid;
       &:hover {
-          color: #69cde6;
+        color: #69cde6;
       }
     }
   }
@@ -1823,7 +1844,7 @@ body {
     height: 64px;
     line-height: 64px;
     border-radius: 12px;
-    transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
     &:hover {
       //transform: scale(0.95);
       .iconfont {
@@ -1842,7 +1863,7 @@ body {
     box-shadow: -2px -2px 4px #c8cbcf, 2px 2px 8px #46494c,
       inset 0px 0px 2px 1px #fff;
     text-shadow: 2px 2px 2px #646567, -2px -2px 2px #ffffff;
-    transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
   }
 }
 .screen8-info {
@@ -1861,7 +1882,20 @@ body {
     margin-right: 0.5rem;
   }
 }
-.screen8-info-right {
-  color: #d4dde6;
+.screen8-info-right a {
+  margin-right: 1rem;
+  &:link {
+    color: #e7e7e7;
+  }
+  &:visited {
+    color: #e7e7e7;
+  }
+  &:hover {
+    color: #69cde6;
+  }
+  &:active {
+    //color: #f19f32;
+    color: #69cde6;
+  }
 }
 </style>

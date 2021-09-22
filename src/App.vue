@@ -6,12 +6,12 @@
 import { defineComponent, reactive, onMounted } from "vue";
 //import HomePage from "./components/HomePage.vue";
 export default defineComponent({
-  name: 'App',
+  name: "App",
   // components: {
   //   HomePage
   // },
   setup(props) {
-        //顶部导航栏
+    //顶部导航栏
     let topNav = reactive({
       left: [
         { ch: "首页", en: "Home", url: "/" },
@@ -25,9 +25,9 @@ export default defineComponent({
         { ch: "关于", en: "About", url: "/about" },
       ],
     });
-    return {topNav}
-  }
-})
+    return { topNav };
+  },
+});
 </script>
 
 <style lang="less">
